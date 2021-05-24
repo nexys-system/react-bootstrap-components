@@ -13,6 +13,10 @@
     "react-components",
     "typescript"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nexys-system/react-bootstrap-components/edit/master/package.json"
+  },
   "license": "MIT",
   "peerDependencies": {
     "@types/react": "^17.0.3",
