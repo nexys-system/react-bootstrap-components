@@ -27,7 +27,7 @@ const GenericFrom = ({
       label: structureUnit.label,
       errors: inputErrors
     }, /* @__PURE__ */ React.createElement(GenericInput, {
-      type: structureUnit.type,
+      type: structureUnit.type || "string",
       value: form[structureUnit.name] || "",
       onChange: (value) => setForm({...form, [structureUnit.name]: value}),
       options: structureUnit.options,
