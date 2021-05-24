@@ -1,4 +1,5 @@
 import React from "react";
+import * as T from "../type";
 
 const getValue = <A extends number | string>(
   v: string | undefined
@@ -20,14 +21,15 @@ export const Select = <A extends number | string>({
   value,
   onChange = (v) =>
     console.log(`onChange not yet implemented, selected value: ${v}`),
+  errors,
 }: {
   options: { id: A; name: string }[];
-  value?: A | undefined;
-  onChange?: (value: A | undefined) => void;
-}) => (
+} & T.InputProps<A>) => (
   <select
+    className={
+      "form-control" + (errors && errors.length > 0 ? "  is-invalid" : "")
+    }
     defaultValue={value}
-    className="form-control"
     onChange={(v) => onChange(getValue(v.target.value))}
   >
     <option value={""}></option>

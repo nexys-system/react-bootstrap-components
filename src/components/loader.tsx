@@ -1,4 +1,3 @@
-// see https://getbootstrap.com/docs/4.4/components/spinners/
 import React from "react";
 
 import { ColorContext } from "./type";

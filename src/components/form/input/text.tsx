@@ -1,23 +1,21 @@
 import React from "react";
 import * as T from "../type";
 
-export const InputNumber = ({
+export const InputText = ({
   value,
   onChange,
   errors,
-}: T.InputProps<number>) => (
+}: T.InputProps<string>) => (
   <input
     className={
       "form-control" + (errors && errors.length > 0 ? "  is-invalid" : "")
     }
-    type="number"
+    type="text"
     value={value}
     onChange={(v) =>
-      v.target.value === ""
-        ? onChange(undefined)
-        : onChange(Number(v.target.value))
+      v.target.value === "" ? onChange(undefined) : onChange(v.target.value)
     }
   />
 );
 
-export default InputNumber;
+export default InputText;
