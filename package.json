@@ -1,7 +1,7 @@
 {
-  "name": "@nexys/snowpack-boilerplate",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "@nexys/react-bootstrap",
+  "version": "0.0.0",
+  "main": "dist/index.js",
   "license": "MIT",
   "dependencies": {
     "@types/react": "^17.0.3",
@@ -16,7 +16,8 @@
   "scripts": {
     "start": "SNOWPACK_PUBLIC_URL= snowpack dev",
     "build": "snowpack build",
-    "test": "jest"
+    "test": "jest",
+    "buildpackage": "tsc -p tsconfig.build.json"
   },
   "devDependencies": {
     "@types/jest": "^26.0.22",

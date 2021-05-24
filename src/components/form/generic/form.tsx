@@ -27,11 +27,12 @@ const GenericFrom = <A,>({
     <>
       <Form onSubmit={() => handleSubmit()}>
         {structure.map((structureUnit, i) => {
-          const inputErrors: string[] = errors && errors[structureUnit.name];
+          const inputErrors: string[] | undefined =
+            errors && errors[structureUnit.name];
           return (
             <Wrapper key={i} label={structureUnit.label} errors={inputErrors}>
               <GenericInput
-                type={structureUnit.type}
+                type={structureUnit.type || "string"}
                 value={form[structureUnit.name] || ""}
                 onChange={(value) =>
                   setForm({ ...form, [structureUnit.name]: value })

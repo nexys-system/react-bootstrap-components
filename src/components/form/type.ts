@@ -1,5 +1,5 @@
 export interface InputProps<A> {
-  onChange: (v: A) => void;
+  onChange: (v: A | undefined) => void;
   value?: A;
   errors?: string[];
 }

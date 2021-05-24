@@ -5,13 +5,13 @@ export const InputNumber = ({
   value,
   onChange,
   errors,
-}: T.InputProps<number>) => (
+}: T.InputProps<number | undefined>) => (
   <input
     className={
       "form-control" + (errors && errors.length > 0 ? "  is-invalid" : "")
     }
     type="number"
-    value={value}
+    value={value || ""}
     onChange={(v) =>
       v.target.value === ""
         ? onChange(undefined)
