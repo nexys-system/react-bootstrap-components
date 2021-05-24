@@ -5,6 +5,14 @@
   "files": [
     "dist/*"
   ],
+  "keywords": [
+    "react",
+    "bootstrap4",
+    "bootstrap",
+    "components",
+    "react-components",
+    "typescript"
+  ],
   "license": "MIT",
   "peerDependencies": {
     "@types/react": "^17.0.3",
