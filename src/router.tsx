@@ -8,6 +8,7 @@ import Form from "./form";
 import Buttons from "./examples/buttons";
 import Tabs from "./examples/tabs";
 import FormContext from "./examples/form";
+import List from "./examples/list";
 
 const NotFound = () => (
   <p>
@@ -28,6 +29,7 @@ export default () => {
       />
       <Route exact path={Links.links.tabs.link} component={Tabs} />
       <Route exact path={Links.links.buttons.link} component={Buttons} />
+      <Route exact path={Links.links.list.link} component={List} />
 
       <Route component={NotFound} />
     </Switch>

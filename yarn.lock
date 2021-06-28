@@ -490,6 +490,11 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
+"@nexys/core-list@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@nexys/core-list/-/core-list-0.0.5.tgz#1149ab4f0515132bc0cc09991d42d0a5c6343e40"
+  integrity sha512-c7PDoPAXP0wxbI8fTh/5wpWRrbv7VdgZucM6bzeBqUR4DYvNnXOJ8SiQfZNdzAQeBCRkGX2hCxuyyVIBjyQhcA==
+
 "@nexys/utils@^3.9.14":
   version "3.9.14"
   resolved "https://registry.yarnpkg.com/@nexys/utils/-/utils-3.9.14.tgz#db7e3581dd3f15990334842111be35d5aba443ca"
