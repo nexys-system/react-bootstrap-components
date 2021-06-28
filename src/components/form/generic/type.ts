@@ -15,5 +15,3 @@ export interface FormProps<A> {
 }
 
 export type ToggleProps<A> = FormProps<A>;
-
-//export interface Errors  <A>{ [l in keyof A]: string[] }

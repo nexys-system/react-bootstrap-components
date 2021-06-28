@@ -1,7 +1,13 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Home from "./home";
-import Examples from "./examples/index";
+import * as Links from "./links";
+
+import Form from "./form";
+
+import Buttons from "./examples/buttons";
+import Tabs from "./examples/tabs";
+import FormContext from "./examples/form";
 
 const NotFound = () => (
   <p>
@@ -12,8 +18,16 @@ const NotFound = () => (
 export default () => {
   return (
     <Switch>
-      <Route path={"/example"} component={Examples} />
       <Route exact path={"/"} component={Home} />
+
+      <Route exact path={Links.links.form.link} component={Form} />
+      <Route
+        exact
+        path={Links.links.formContext.link}
+        component={FormContext}
+      />
+      <Route exact path={Links.links.tabs.link} component={Tabs} />
+      <Route exact path={Links.links.buttons.link} component={Buttons} />
 
       <Route component={NotFound} />
     </Switch>

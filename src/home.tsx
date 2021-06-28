@@ -1,14 +1,23 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { title, github } from "./config";
+import { Link } from "react-router-dom";
+import * as Links from "./links";
 
 export default () => (
   <>
     <h1>{title}</h1>
 
-    <p>
-      <Link to={"/example"}>Examples</Link>
-    </p>
+    <p>Examples below</p>
+
+    <ul>
+      {Links.menus.map((menu) => {
+        return (
+          <li>
+            <Link to={menu.link}>{menu.name}</Link>
+          </li>
+        );
+      })}
+    </ul>
 
     <p>
       <a href={github.url}>

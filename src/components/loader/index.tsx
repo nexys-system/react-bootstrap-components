@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ColorContext } from "./type";
+import { ColorContext } from "../type";
 
 export default ({
   colorContext = "primary",
