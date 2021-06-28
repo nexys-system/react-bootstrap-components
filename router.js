@@ -6,6 +6,7 @@ import Form from "./form/index.js";
 import Buttons from "./examples/buttons.js";
 import Tabs from "./examples/tabs/index.js";
 import FormContext from "./examples/form/index.js";
+import List from "./examples/list/index.js";
 const NotFound = () => /* @__PURE__ */ React.createElement("p", null, /* @__PURE__ */ React.createElement("i", null, "Page Not Found"));
 export default () => {
   return /* @__PURE__ */ React.createElement(Switch, null, /* @__PURE__ */ React.createElement(Route, {
@@ -28,6 +29,10 @@ export default () => {
     exact: true,
     path: Links.links.buttons.link,
     component: Buttons
+  }), /* @__PURE__ */ React.createElement(Route, {
+    exact: true,
+    path: Links.links.list.link,
+    component: List
   }), /* @__PURE__ */ React.createElement(Route, {
     component: NotFound
   }));

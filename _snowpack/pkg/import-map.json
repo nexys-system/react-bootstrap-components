@@ -1,5 +1,7 @@
 {
   "imports": {
+    "@nexys/core-list": "./@nexys/core-list.js",
+    "@nexys/core-list/dist/list/list-super": "./@nexys/core-list/dist/list/list-super.js",
     "@nexys/validation": "./@nexys/validation.js",
     "react": "./react.js",
     "react-dom": "./react-dom.js",
