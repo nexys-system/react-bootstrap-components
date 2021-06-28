@@ -3,7 +3,7 @@ import Card from "./card/index.js";
 import * as Form from "./form/index.js";
 import * as Tabs from "./tabs/index.js";
 import Icon from "./icon.js";
-import Loader from "./loader.js";
+import Loader from "./loader/index.js";
 import ProgressBar from "./progress-bar.js";
 import * as Type from "./type.js";
 import WLoader from "./w-loader.js";

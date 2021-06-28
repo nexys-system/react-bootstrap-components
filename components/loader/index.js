@@ -1,4 +1,4 @@
-import React from "../_snowpack/pkg/react.js";
+import React from "../../_snowpack/pkg/react.js";
 export default ({
   colorContext = "primary"
 }) => /* @__PURE__ */ React.createElement("div", {

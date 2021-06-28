@@ -1,5 +1,5 @@
 import React from "../_snowpack/pkg/react.js";
-import Loader from "./loader.js";
+import Loader from "./loader/index.js";
 export const WLoader = (Loader2) => ({
   getData,
   Component
