@@ -1,14 +1,5 @@
-import React from "../../../_snowpack/pkg/react.js";
-const getValue = (v) => {
-  if (v === "" || v === void 0) {
-    return void 0;
-  }
-  const vn = Number(v);
-  if (isNaN(vn)) {
-    return v;
-  }
-  return vn;
-};
+import React from "../../../../_snowpack/pkg/react.js";
+import {getValue} from "./utils.js";
 export const Select = ({
   options,
   value,

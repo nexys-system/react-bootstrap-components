@@ -2,6 +2,7 @@ import * as T from "./type.js";
 export const uiTypeToVType = (t) => {
   switch (t) {
     case T.FormType.Number:
+    case T.FormType.Select:
       return "number";
     case T.FormType.Text:
       return "string";

@@ -1,6 +1,5 @@
 import React from "../../../_snowpack/pkg/react.js";
 import * as Inputs from "../input/index.js";
-import * as Select from "../select/index.js";
 const GenericInput = ({
   type,
   onChange,
@@ -13,7 +12,7 @@ const GenericInput = ({
       if (!options) {
         throw Error("options were not given");
       }
-      return /* @__PURE__ */ React.createElement(Select.default, {
+      return /* @__PURE__ */ React.createElement(Inputs.Select.Scalar, {
         options,
         value,
         onChange,

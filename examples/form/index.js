@@ -1,52 +1,52 @@
 import React from "../../_snowpack/pkg/react.js";
-import GenericForm from "../../components/form/generic/form.js";
-import View from "../../components/form/generic/view/index.js";
-import Toggle from "../../components/form/generic/toggle/index.js";
-import {SwapComponent} from "../../components/tabs/index.js";
-const structure = [
+import Form from "./form.js";
+import * as T from "./type.js";
+import * as Ctx from "../../components/notifications/context.js";
+import {NotificationType} from "../../components/notifications/type.js";
+var DataCategory;
+(function(DataCategory2) {
+  DataCategory2[DataCategory2["one"] = 1] = "one";
+  DataCategory2[DataCategory2["two"] = 2] = "two";
+  DataCategory2[DataCategory2["three"] = 3] = "three";
+})(DataCategory || (DataCategory = {}));
+const formDef = [
   {
-    name: "name",
-    label: "My Name"
+    name: "firstName",
+    label: "FirstName",
+    uiType: T.FormType.Text,
+    optional: false
   },
+  {name: "age", label: "Age", uiType: T.FormType.Number, optional: false},
   {
-    name: "age",
-    label: "My Age",
-    type: "number"
-  },
-  {
-    name: "category",
-    label: "My Cat",
-    type: "category",
+    name: "cat",
+    label: "Category",
+    uiType: T.FormType.Select,
+    optional: false,
     options: [
-      {id: 1, name: "a"},
-      {id: 2, name: "b"}
+      {id: 1, name: "cat #1"},
+      {id: 2, name: "cat #2"}
     ]
   }
 ];
-const sampleData = {name: "my name", age: 32, category: 2};
 export default () => {
-  const handleSubmit = (d) => {
-    return Promise.resolve();
+  const [isLoading, setLoading] = React.useState(false);
+  const [errors, setErrors] = React.useState();
+  const {setNotification} = Ctx.useToastContext();
+  const handleSubmit = async () => {
+    setLoading(true);
+    setTimeout(() => {
+      console.log("ds");
+      setLoading(false);
+      setErrors({
+        firstName: ["sdf"]
+      });
+      setNotification({text: "my content", type: NotificationType.toast});
+    }, 2e3);
   };
-  const toggle = /* @__PURE__ */ React.createElement(Toggle, {
-    onSubmit: handleSubmit,
-    data: sampleData,
-    structure
-  });
-  const view = /* @__PURE__ */ React.createElement(View, {
-    data: sampleData,
-    structure
-  });
-  const form = /* @__PURE__ */ React.createElement(GenericForm, {
-    structure,
-    data: sampleData,
-    onSubmit: handleSubmit
-  });
-  return /* @__PURE__ */ React.createElement(SwapComponent, {
-    navs: [
-      {name: "Form", Component: form},
-      {name: "View", Component: view},
-      {name: "Toggle", Component: toggle}
-    ]
-  });
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("h1", null, "Form"), /* @__PURE__ */ React.createElement(Form, {
+    formDef,
+    isLoading,
+    onSuccess: handleSubmit,
+    errors
+  }));
 };

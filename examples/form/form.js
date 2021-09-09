@@ -1,7 +1,7 @@
-import React from "../_snowpack/pkg/react.js";
-import * as Form from "../components/form/index.js";
+import React from "../../_snowpack/pkg/react.js";
+import * as Form from "../../components/form/index.js";
 import FormUnit from "./unit.js";
-import * as V from "../_snowpack/pkg/@nexys/validation.js";
+import * as V from "../../_snowpack/pkg/@nexys/validation.js";
 import * as U from "./utils.js";
 const FormGenerator = ({
   formDef,
@@ -39,6 +39,7 @@ const FormGenerator = ({
       errors: errorUnit,
       value: data[fd.name],
       onChange: (v) => setData({...data, [fd.name]: v}),
+      options: fd.options,
       disabled: isLoading
     }));
   }), /* @__PURE__ */ React.createElement("button", {
