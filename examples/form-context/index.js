@@ -1,26 +1,33 @@
 import React from "../../_snowpack/pkg/react.js";
-import GenericForm from "../../components/form/generic/form.js";
+import GenericForm from "../../components/form/generic/generator2.js";
 import View from "../../components/form/generic/view/index.js";
 import Toggle from "../../components/form/generic/toggle/index.js";
 import {SwapComponent} from "../../components/tabs/index.js";
+import {
+  FormType
+} from "../../components/headless/form/type.js";
 const structure = [
   {
     name: "name",
-    label: "My Name"
+    label: "My Name",
+    uiType: FormType.Text,
+    optional: false
   },
   {
     name: "age",
     label: "My Age",
-    type: "number"
+    uiType: FormType.Number,
+    optional: false
   },
   {
     name: "category",
     label: "My Cat",
-    type: "category",
+    uiType: FormType.Select,
     options: [
       {id: 1, name: "a"},
       {id: 2, name: "b"}
-    ]
+    ],
+    optional: false
   }
 ];
 const sampleData = {name: "my name", age: 32, category: 2};
@@ -31,16 +38,16 @@ export default () => {
   const toggle = /* @__PURE__ */ React.createElement(Toggle, {
     onSubmit: handleSubmit,
     data: sampleData,
-    structure
+    formDef: structure
   });
   const view = /* @__PURE__ */ React.createElement(View, {
     data: sampleData,
     structure
   });
   const form = /* @__PURE__ */ React.createElement(GenericForm, {
-    structure,
-    data: sampleData,
-    onSubmit: handleSubmit
+    formDef: structure,
+    valueDefault: sampleData,
+    onSuccess: handleSubmit
   });
   return /* @__PURE__ */ React.createElement(SwapComponent, {
     navs: [

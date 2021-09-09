@@ -1,9 +1,6 @@
 import React from "../_snowpack/pkg/react.js";
 import BtnGroup from "../components/button/group.js";
 import Dropdown from "../components/button/dropdown.js";
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
 export default () => {
   return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement(BtnGroup, {
     onClick: async (v) => new Promise((resolve) => setTimeout(() => {

@@ -1,8 +1,8 @@
 import React from "../../_snowpack/pkg/react.js";
-import Form from "./form.js";
-import * as T from "./type.js";
+import Form from "../../components/form/generic/generator2.js";
 import * as Ctx from "../../components/notifications/context.js";
 import {NotificationType} from "../../components/notifications/type.js";
+import {FormType} from "../../components/headless/form/type.js";
 var DataCategory;
 (function(DataCategory2) {
   DataCategory2[DataCategory2["one"] = 1] = "one";
@@ -13,14 +13,24 @@ const formDef = [
   {
     name: "firstName",
     label: "FirstName",
-    uiType: T.FormType.Text,
+    uiType: FormType.Text,
     optional: false
   },
-  {name: "age", label: "Age", uiType: T.FormType.Number, optional: false},
+  {name: "age", label: "Age", uiType: FormType.Number, optional: false},
   {
     name: "cat",
     label: "Category",
-    uiType: T.FormType.Select,
+    uiType: FormType.Select,
+    optional: false,
+    options: [
+      {id: 1, name: "cat #1"},
+      {id: 2, name: "cat #2"}
+    ]
+  },
+  {
+    name: "catObject",
+    label: "Category 2",
+    uiType: FormType.SelectObject,
     optional: false,
     options: [
       {id: 1, name: "cat #1"},

@@ -1,8 +1,8 @@
-import React from "../../_snowpack/pkg/react.js";
-import * as Form from "../../components/form/index.js";
-import FormUnit from "./unit.js";
-import * as V from "../../_snowpack/pkg/@nexys/validation.js";
-import * as U from "./utils.js";
+import React from "../../../_snowpack/pkg/react.js";
+import {Wrapper} from "../index.js";
+import FormUnit from "./input.js";
+import * as V from "../../../_snowpack/pkg/@nexys/validation.js";
+import * as U from "../../headless/form/utils.js";
 const FormGenerator = ({
   formDef,
   onSuccess,
@@ -30,12 +30,12 @@ const FormGenerator = ({
   }, formDef.map((fd, i) => {
     const name = fd.name;
     const errorUnit = errors && errors[name];
-    return /* @__PURE__ */ React.createElement(Form.Wrapper, {
+    return /* @__PURE__ */ React.createElement(Wrapper, {
       errors: errorUnit,
       key: i,
       label: fd.label
     }, /* @__PURE__ */ React.createElement(FormUnit, {
-      fd,
+      type: fd.uiType,
       errors: errorUnit,
       value: data[fd.name],
       onChange: (v) => setData({...data, [fd.name]: v}),

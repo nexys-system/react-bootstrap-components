@@ -1,4 +1,5 @@
 import React from "../../../_snowpack/pkg/react.js";
+import * as T from "./type.js";
 const FormGeneric = (SubmitBtn, Wrapper, FormLayout, GenericInput) => ({data, structure, errors: pErrors = {}, onSubmit}) => {
   const [form, setForm] = React.useState(data);
   const [errors, setErrors] = React.useState(pErrors);
@@ -19,7 +20,7 @@ const FormGeneric = (SubmitBtn, Wrapper, FormLayout, GenericInput) => ({data, st
       label: structureUnit.label,
       errors: inputErrors
     }, /* @__PURE__ */ React.createElement(GenericInput, {
-      type: structureUnit.type || "string",
+      type: structureUnit.uiType || T.FormType.Text,
       value: form[structureUnit.name] || "",
       onChange: (value) => setForm({...form, [structureUnit.name]: value}),
       options: structureUnit.options,

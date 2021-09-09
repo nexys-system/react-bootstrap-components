@@ -1,7 +1,8 @@
 import React from "../../../_snowpack/pkg/react.js";
-const InputUnitGeneric = (InputText, InputNumber, InputSelectScalar) => ({type, onChange, value, options, errors}) => {
+import * as TT from "./type.js";
+const InputUnitGeneric = (InputText, InputNumber, InputSelectScalar, InputSelectObject) => ({type, onChange, value, options, errors}) => {
   switch (type) {
-    case "category":
+    case TT.FormType.Select:
       if (!options) {
         throw Error("options were not given");
       }
@@ -11,7 +12,17 @@ const InputUnitGeneric = (InputText, InputNumber, InputSelectScalar) => ({type, 
         onChange,
         errors
       });
-    case "number":
+    case TT.FormType.SelectObject:
+      if (!options) {
+        throw Error("options were not given");
+      }
+      return /* @__PURE__ */ React.createElement(InputSelectObject, {
+        options,
+        value,
+        onChange,
+        errors
+      });
+    case TT.FormType.Number:
       return /* @__PURE__ */ React.createElement(InputNumber, {
         value,
         onChange,

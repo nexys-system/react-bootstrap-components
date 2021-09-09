@@ -1,4 +1,5 @@
 import * as Inputs from "../input/index.js";
 import InputUnitGeneric from "../../headless/form/input-unit.js";
-const InputUnit = InputUnitGeneric(Inputs.Text, Inputs.Number, Inputs.Select.Scalar);
+import {Input} from "../index.js";
+const InputUnit = InputUnitGeneric(Inputs.Text, Inputs.Number, Inputs.Select.Scalar, Input.Select.Object);
 export default InputUnit;

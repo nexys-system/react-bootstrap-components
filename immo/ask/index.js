@@ -1,6 +1,6 @@
 import React from "../../_snowpack/pkg/react.js";
-import Form from "../../examples/form/form.js";
-import {FormType} from "../../examples/form/type.js";
+import Form from "../../components/form/generic/generator2.js";
+import {FormType} from "../../components/headless/form/type.js";
 var Permit;
 (function(Permit2) {
   Permit2[Permit2["A"] = 0] = "A";
