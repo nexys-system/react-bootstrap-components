@@ -1,5 +1,5 @@
 import React from "react";
-import * as T from "../../headless/type";
+import * as T from "../../../headless/form/type";
 
 import View from "../view";
 import GenericForm from "../form";

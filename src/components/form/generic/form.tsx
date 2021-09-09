@@ -2,7 +2,7 @@ import React from "react";
 
 import Form from "../form";
 import Wrapper from "../wrapper";
-import * as T from "../headless/type";
+import * as T from "../../headless/form/type";
 import GenericInput from "./input";
 
 const GenericFrom = <A,>({

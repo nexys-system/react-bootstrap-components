@@ -1,6 +1,6 @@
 import React from "react";
-import * as T from "../../headless/type";
-import { getValue } from "../../headless/utils";
+import * as T from "../../../headless/form/type";
+import { getValue } from "../../../headless/form/utils";
 
 export const Select = <Id extends number | string>({
   options,
