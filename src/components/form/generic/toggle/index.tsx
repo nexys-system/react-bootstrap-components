@@ -2,7 +2,7 @@ import * as T from "../../../headless/form/type";
 import ToggleGeneric from "../../../headless/toggle";
 
 import View from "../view";
-import GenericForm from "../form";
+import GenericForm from "../generator2";
 
 import { BtnBack, BtnEdit } from "../../../button/actions";
 

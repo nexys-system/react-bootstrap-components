@@ -32,7 +32,7 @@ const FormGeneric =
             return (
               <Wrapper key={i} label={structureUnit.label} errors={inputErrors}>
                 <GenericInput
-                  type={structureUnit.type || "string"}
+                  type={structureUnit.uiType || T.FormType.Text}
                   value={(form[structureUnit.name] as any) || ""}
                   onChange={(value) =>
                     setForm({ ...form, [structureUnit.name]: value })

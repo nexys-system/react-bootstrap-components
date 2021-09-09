@@ -10,7 +10,7 @@ const InputUnitGeneric =
   ) =>
   ({ type, onChange, value, options, errors }: TT.InputUnitProps<Id>) => {
     switch (type) {
-      case "category":
+      case TT.FormType.Select:
         if (!options) {
           throw Error("options were not given");
         }
@@ -22,7 +22,7 @@ const InputUnitGeneric =
             errors={errors}
           />
         );
-      case "number":
+      case TT.FormType.Number:
         return (
           <InputNumber
             value={value as any}

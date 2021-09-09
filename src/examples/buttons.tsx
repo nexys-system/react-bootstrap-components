@@ -3,10 +3,6 @@ import React from "react";
 import BtnGroup from "../components/button/group";
 import Dropdown from "../components/button/dropdown";
 
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
 export default () => {
   return (
     <div>

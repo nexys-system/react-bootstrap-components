@@ -1,10 +1,14 @@
 import React from "react";
 
-import { StructureUnit } from "../../components/form/generic/type";
-import GenericForm from "../../components/form/generic/form";
+import GenericForm from "../../components/form/generic/generator2";
 import View from "../../components/form/generic/view";
 import Toggle from "../../components/form/generic/toggle";
 import { SwapComponent } from "../../components/tabs";
+import {
+  FormDef,
+  FormType,
+  StructureUnit,
+} from "../../components/headless/form/type";
 
 interface Form {
   name: string;
@@ -12,24 +16,28 @@ interface Form {
   category: number;
 }
 
-const structure: StructureUnit<Form>[] = [
+const structure: FormDef<Form>[] = [
   {
     name: "name",
     label: "My Name",
+    uiType: FormType.Text,
+    optional: false,
   },
   {
     name: "age",
     label: "My Age",
-    type: "number",
+    uiType: FormType.Number,
+    optional: false,
   },
   {
     name: "category",
     label: "My Cat",
-    type: "category",
+    uiType: FormType.Select,
     options: [
       { id: 1, name: "a" },
       { id: 2, name: "b" },
     ],
+    optional: false,
   },
 ];
 
@@ -47,9 +55,9 @@ export default () => {
   const view = <View data={sampleData} structure={structure} />;
   const form = (
     <GenericForm<Form>
-      structure={structure}
-      data={sampleData}
-      onSubmit={handleSubmit}
+      formDef={structure}
+      valueDefault={sampleData}
+      onSuccess={handleSubmit}
     />
   );
 

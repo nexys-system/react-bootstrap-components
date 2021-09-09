@@ -1,32 +1,24 @@
 import React from "react";
 
-import * as Form from "../../components/form";
-import FormUnit from "./unit";
-
-import * as T from "./type";
+import { Wrapper } from "../index";
+import FormUnit from "./input";
 
 import * as V from "@nexys/validation";
-import * as U from "./utils";
+import * as U from "../../headless/form/utils";
+import { FormProps2 } from "../../headless/form/type";
 
-const FormGenerator = <A, B>({
+const FormGenerator = <A,>({
   formDef,
   onSuccess,
   isLoading = false,
   valueDefault = {},
   errors: errorsDefault,
   submit = { label: "Submit" },
-}: {
-  formDef: T.FormDef<A>[];
-  onSuccess: (v: A) => void;
-  isLoading?: boolean;
-  valueDefault?: Partial<A>;
-  errors?: V.Type.ErrorOut | V.Type.Error;
-  submit?: { label: string };
-}) => {
+}: FormProps2<A>) => {
   const [data, setData] = React.useState<Partial<A>>(valueDefault);
-  const [errors, setErrors] = React.useState<V.Type.ErrorOut | V.Type.Error>(
-    errorsDefault
-  );
+  const [errors, setErrors] = React.useState<
+    V.Type.ErrorOut | V.Type.Error | undefined
+  >(errorsDefault);
 
   React.useEffect(() => {
     setErrors(errorsDefault);
@@ -53,18 +45,19 @@ const FormGenerator = <A, B>({
     <form onSubmit={handleSubmit}>
       {formDef.map((fd, i) => {
         const name = fd.name;
-        const errorUnit = errors && errors[name as string];
+        const errorUnit: string[] | undefined =
+          errors && (errors as any)[name as any];
         return (
-          <Form.Wrapper errors={errorUnit} key={i} label={fd.label}>
+          <Wrapper errors={errorUnit} key={i} label={fd.label}>
             <FormUnit
-              fd={fd}
+              type={fd.uiType}
               errors={errorUnit}
-              value={data[fd.name]}
+              value={data[fd.name] as any}
               onChange={(v) => setData({ ...data, [fd.name]: v })}
               options={fd.options}
               disabled={isLoading}
             />
-          </Form.Wrapper>
+          </Wrapper>
         );
       })}
 

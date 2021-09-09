@@ -1,7 +1,8 @@
 import React from "react";
 import Form from "../../examples/form/form";
-import { FormDef, FormType } from "../../examples/form/type";
+
 import * as V from "@nexys/validation";
+import { FormDef, FormType } from "../../components/headless/form/type";
 
 enum Permit {
   A,

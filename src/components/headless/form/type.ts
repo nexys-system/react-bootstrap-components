@@ -1,3 +1,5 @@
+import * as V from "@nexys/validation";
+
 export interface InputProps<A> {
   onChange: (v: A | undefined) => void;
   value?: A;
@@ -36,17 +38,31 @@ export interface SelectOptionSetProps<A> extends InputProps<OptionSet<A>> {
   options: OptionSet<A>[];
 }
 
-export type TypeUnit = "string" | "number" | "category";
+export enum FormType {
+  Number,
+  Text,
+  Select,
+  SelectObject,
+  Switch,
+}
 
 export interface StructureViewUnit<A> {
   name: keyof A;
-  label: string;
+  label?: string;
   options?: { id: number; name: string }[];
   render?: (a: A) => string;
 }
 
+export interface FormDef<A> {
+  name: keyof A;
+  label?: string;
+  uiType: FormType;
+  optional: boolean;
+  options?: { id: number; name: string }[];
+}
+
 export interface StructureUnit<A> extends StructureViewUnit<A> {
-  type?: TypeUnit;
+  uiType?: FormType;
 }
 
 export interface FormProps<A> {
@@ -56,9 +72,21 @@ export interface FormProps<A> {
   onSubmit: (data: Partial<A>) => Promise<void>;
 }
 
-export type ToggleProps<A> = FormProps<A>;
+export interface FormProps2<A> {
+  formDef: FormDef<A>[];
+  onSuccess: (v: A) => void;
+  valueDefault?: Partial<A>;
+  errors?: V.Type.ErrorOut | V.Type.Error;
+
+  submit?: { label: string };
+  isLoading?: boolean;
+}
+
+export type ToggleProps<A> = Omit<FormProps<A>, "structure"> & {
+  formDef: FormDef<A>[];
+};
 
 export type InputUnitProps<Id> = {
-  type: TypeUnit;
+  type: FormType;
   options?: OptionSet<Id>[];
 } & InputProps<Id>;

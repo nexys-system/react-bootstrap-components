@@ -1,3 +1,6 @@
+import * as V from "@nexys/validation";
+import { FormDef, FormType } from "./type";
+
 export const getValue = <A extends number | string>(
   v: string | undefined
 ): A | undefined => {
@@ -11,4 +14,29 @@ export const getValue = <A extends number | string>(
   }
 
   return vn as A;
+};
+
+export const uiTypeToVType = (t: FormType): V.Type.FieldType => {
+  switch (t) {
+    case FormType.Number:
+    case FormType.Select:
+      return "number";
+    case FormType.Text:
+      return "string";
+  }
+
+  throw Error("could not map");
+};
+
+export const generateValidatorFromDef = <A>(df: FormDef<A>[]) => {
+  const v: V.Type.Shape = {};
+
+  df.forEach((f) => {
+    v[f.name as string] = {
+      optional: f.optional,
+      type: uiTypeToVType(f.uiType),
+    };
+  });
+
+  return v;
 };

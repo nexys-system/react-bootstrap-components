@@ -1,10 +1,11 @@
 import React from "react";
 
-import Form from "./form";
-import * as T from "./type";
+import Form from "../../components/form/generic/generator2";
+
 import * as V from "@nexys/validation";
 import * as Ctx from "../../components/notifications/context";
 import { NotificationType } from "../../components/notifications/type";
+import { FormType, FormDef } from "../../components/headless/form/type";
 
 enum DataCategory {
   one = 1,
@@ -18,18 +19,18 @@ interface Data {
   cat: DataCategory;
 }
 
-const formDef: T.FormDef<Data>[] = [
+const formDef: FormDef<Data>[] = [
   {
     name: "firstName",
     label: "FirstName",
-    uiType: T.FormType.Text,
+    uiType: FormType.Text,
     optional: false,
   },
-  { name: "age", label: "Age", uiType: T.FormType.Number, optional: false },
+  { name: "age", label: "Age", uiType: FormType.Number, optional: false },
   {
     name: "cat",
     label: "Category",
-    uiType: T.FormType.Select,
+    uiType: FormType.Select,
     optional: false,
     options: [
       { id: 1, name: "cat #1" },
