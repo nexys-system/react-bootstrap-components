@@ -11,6 +11,13 @@ export interface OptionSet<A> {
   name: string;
 }
 
+export interface WrapperProps {
+  label?: string;
+  info?: string;
+  children: JSX.Element | JSX.Element[];
+  errors?: string[];
+}
+
 /**
  * select props for dropdowns that return either a string or number (ie. enum)
  */
@@ -50,3 +57,8 @@ export interface FormProps<A> {
 }
 
 export type ToggleProps<A> = FormProps<A>;
+
+export type InputUnitProps<Id> = {
+  type: TypeUnit;
+  options?: OptionSet<Id>[];
+} & InputProps<Id>;

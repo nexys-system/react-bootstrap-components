@@ -1,5 +1,5 @@
 export * as Input from "./input";
 import Wrapper from "./wrapper";
-import Form from "./form";
+import Layout from "./layout";
 
-export { Wrapper, Form };
+export { Wrapper, Layout };

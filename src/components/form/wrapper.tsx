@@ -1,38 +1,27 @@
 import React from "react";
+import { WrapperProps } from "../headless/form/type";
 
-export const Wrapper = ({
-  label,
-  info,
-  children,
-  errors,
-}: {
-  label?: string;
-  info?: string;
-  children: JSX.Element | JSX.Element[];
-  errors?: string[];
-}) => {
-  return (
-    <div className="form-group">
-      <label>{label}</label>
-      {children}
-      <small
-        //id="emailHelp"
-        className="form-text text-muted"
-      >
-        {info}
-      </small>
-      {errors && (
-        <div className="invalid-feedback">
-          <ul className="list list-unstyled">
-            {errors.map((e, i) => (
-              <li key={i}>{e}</li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
-  );
-};
+export const Wrapper = ({ label, info, children, errors }: WrapperProps) => (
+  <div className="form-group">
+    <label>{label}</label>
+    {children}
+    <small
+      //id="emailHelp"
+      className="form-text text-muted"
+    >
+      {info}
+    </small>
+    {errors && (
+      <div className="invalid-feedback">
+        <ul className="list list-unstyled">
+          {errors.map((e, i) => (
+            <li key={i}>{e}</li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </div>
+);
 
 export const Wrapper2 = ({
   label,

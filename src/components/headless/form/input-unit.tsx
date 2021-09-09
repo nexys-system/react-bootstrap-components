@@ -8,16 +8,7 @@ const InputUnitGeneric =
     InputNumber: (a: TT.InputProps<number>) => JSX.Element,
     InputSelectScalar: (a: TT.SelectProps<Id>) => JSX.Element
   ) =>
-  ({
-    type,
-    onChange,
-    value,
-    options,
-    errors,
-  }: {
-    type: TT.TypeUnit;
-    options?: TT.OptionSet<Id>[];
-  } & TT.InputProps<Id>) => {
+  ({ type, onChange, value, options, errors }: TT.InputUnitProps<Id>) => {
     switch (type) {
       case "category":
         if (!options) {

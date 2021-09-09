@@ -1,5 +1,10 @@
 import React from "react";
 
+export interface FormProps {
+  onSubmit: () => void;
+  children: JSX.Element[] | JSX.Element;
+}
+
 export const FormGeneric =
   (
     FormElement: ({
@@ -10,13 +15,7 @@ export const FormGeneric =
       children: JSX.Element[] | JSX.Element;
     }) => JSX.Element
   ) =>
-  ({
-    onSubmit,
-    children,
-  }: {
-    onSubmit: () => void;
-    children: JSX.Element[] | JSX.Element;
-  }) => {
+  ({ onSubmit, children }: FormProps) => {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       onSubmit();
