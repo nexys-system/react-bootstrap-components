@@ -1,7 +1,7 @@
 export const getValue = <A extends number | string>(
   v: string | undefined
 ): A | undefined => {
-  if (v === "" || v === undefined) {
+  if (v === "" || v === undefined || v === null) {
     return undefined;
   }
 
