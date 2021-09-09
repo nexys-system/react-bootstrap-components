@@ -1,10 +1,11 @@
-import * as Buttons from "./button/index.js";
+export * as Buttons from "./button/index.js";
+export * as Form from "./form/index.js";
+export * as Tabs from "./tabs/index.js";
+export * as Type from "./type.js";
+export * as Headless from "./headless/index.js";
 import Card from "./card/index.js";
-import * as Form from "./form/index.js";
-import * as Tabs from "./tabs/index.js";
 import Icon from "./icon.js";
 import Loader from "./loader/index.js";
 import ProgressBar from "./progress-bar.js";
-import * as Type from "./type.js";
 import WLoader from "./w-loader.js";
-export {Buttons, Card, Form, Tabs, Icon, Loader, ProgressBar, Type, WLoader};
+export {Card, Icon, Loader, ProgressBar, WLoader};
