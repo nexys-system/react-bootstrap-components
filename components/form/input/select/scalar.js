@@ -1,5 +1,5 @@
 import React from "../../../../_snowpack/pkg/react.js";
-import {getValue} from "./utils.js";
+import {getValue} from "../../../headless/form/utils.js";
 export const Select = ({
   options,
   value,

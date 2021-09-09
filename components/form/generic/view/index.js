@@ -1,12 +1,8 @@
 import React from "../../../../_snowpack/pkg/react.js";
-const View = ({
-  data,
-  structure
-}) => {
-  return /* @__PURE__ */ React.createElement("table", {
-    className: "table table-striped"
-  }, /* @__PURE__ */ React.createElement("tbody", null, structure.map((structureUnit, i) => /* @__PURE__ */ React.createElement("tr", {
-    key: i
-  }, /* @__PURE__ */ React.createElement("td", null, structureUnit.label || structureUnit.name), /* @__PURE__ */ React.createElement("td", null, data[structureUnit.name])))));
-};
+import * as ViewGeneric from "../../../headless/view/index.js";
+const Row = ({data, structureUnit}) => /* @__PURE__ */ React.createElement("tr", null, /* @__PURE__ */ React.createElement("td", null, structureUnit.label || structureUnit.name), /* @__PURE__ */ React.createElement("td", null, ViewGeneric.Utils.getValue(structureUnit, data)));
+const Layout = ({children}) => /* @__PURE__ */ React.createElement("table", {
+  className: "table table-striped"
+}, /* @__PURE__ */ React.createElement("tbody", null, children));
+const View = (props) => ViewGeneric.View(Layout, Row)(props);
 export default View;
