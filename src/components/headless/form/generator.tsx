@@ -27,6 +27,8 @@ const FormGenerator =
     }, [errorsDefault]);
 
     const validator = U.generateValidatorFromDef(formDef);
+    console.log(validator);
+    console.log(JSON.stringify(data));
 
     const handleSubmit = (event: any): void => {
       event.preventDefault();
@@ -38,7 +40,7 @@ const FormGenerator =
       if (Object.values(v).length === 0) {
         //
         //alert(JSON.stringify(v));
-        //console.log(JSON.stringify(data));
+
         onSuccess(data as A);
       }
     };
@@ -56,7 +58,7 @@ const FormGenerator =
                 errors={errorUnit}
                 value={data[fd.name] as any}
                 onChange={(v) => setData({ ...data, [fd.name]: v })}
-                options={fd.options as any}
+                options={fd.options}
                 disabled={isLoading}
               />
             </Wrapper>

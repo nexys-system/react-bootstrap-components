@@ -51,6 +51,6 @@
   },
   "dependencies": {
     "@nexys/core-list": "^0.0.5",
-    "@nexys/validation": "^2.1.0"
+    "@nexys/validation": "^2.1.1"
   }
 }

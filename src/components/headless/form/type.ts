@@ -86,5 +86,5 @@ export type ToggleProps<A> = Omit<FormProps<A>, "structure"> & {
 
 export type InputUnitProps<Id> = {
   type: FormType;
-  options?: OptionSet<Id>[];
+  options?: OptionSet<number | string>[];
 } & InputProps<Id>;

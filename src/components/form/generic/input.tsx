@@ -2,7 +2,7 @@ import * as Inputs from "../input";
 import InputUnitGeneric from "../../headless/form/input-unit";
 import { Input } from "..";
 
-const InputUnit = InputUnitGeneric<any>(
+const InputUnit = InputUnitGeneric(
   Inputs.Text,
   Inputs.Number,
   Inputs.Select.Scalar,
