@@ -1,65 +1,71 @@
 import React from "react";
 
-import { StructureUnit } from "../../components/form/generic/type";
-import GenericForm from "../../components/form/generic/form";
-import View from "../../components/form/generic/view";
-import Toggle from "../../components/form/generic/toggle";
-import { SwapComponent } from "../../components/tabs";
+import Form from "./form";
+import * as T from "./type";
+import * as V from "@nexys/validation";
+import * as Ctx from "../../components/notifications/context";
+import { NotificationType } from "../../components/notifications/type";
 
-interface Form {
-  name: string;
-  age: number;
-  category: number;
+enum DataCategory {
+  one = 1,
+  two = 2,
+  three = 3,
 }
 
-const structure: StructureUnit<Form>[] = [
+interface Data {
+  firstName: string;
+  age: number;
+  cat: DataCategory;
+}
+
+const formDef: T.FormDef<Data>[] = [
   {
-    name: "name",
-    label: "My Name",
+    name: "firstName",
+    label: "FirstName",
+    uiType: T.FormType.Text,
+    optional: false,
   },
+  { name: "age", label: "Age", uiType: T.FormType.Number, optional: false },
   {
-    name: "age",
-    label: "My Age",
-    type: "number",
-  },
-  {
-    name: "category",
-    label: "My Cat",
-    type: "category",
+    name: "cat",
+    label: "Category",
+    uiType: T.FormType.Select,
+    optional: false,
     options: [
-      { id: 1, name: "a" },
-      { id: 2, name: "b" },
+      { id: 1, name: "cat #1" },
+      { id: 2, name: "cat #2" },
     ],
   },
 ];
 
-const sampleData: Form = { name: "my name", age: 32, category: 2 };
-
 export default () => {
-  const handleSubmit = (d: Partial<Form>) => {
-    //return Promise.reject({ name: ["my name is missing"] });
-    return Promise.resolve();
+  const [isLoading, setLoading] = React.useState(false);
+  const [errors, setErrors] = React.useState<V.Type.ErrorOut | V.Type.Error>();
+  const { setNotification } = Ctx.useToastContext();
+
+  const handleSubmit = async () => {
+    setLoading(true);
+
+    setTimeout(() => {
+      console.log("ds");
+      setLoading(false);
+      setErrors({
+        firstName: ["sdf"],
+      });
+      //setNotification({ text: "hello2", type: NotificationType.banner });
+      setNotification({ text: "my content", type: NotificationType.toast });
+    }, 2000);
   };
 
-  const toggle = (
-    <Toggle onSubmit={handleSubmit} data={sampleData} structure={structure} />
-  );
-  const view = <View data={sampleData} structure={structure} />;
-  const form = (
-    <GenericForm<Form>
-      structure={structure}
-      data={sampleData}
-      onSubmit={handleSubmit}
-    />
-  );
-
   return (
-    <SwapComponent
-      navs={[
-        { name: "Form", Component: form },
-        { name: "View", Component: view },
-        { name: "Toggle", Component: toggle },
-      ]}
-    />
+    <>
+      <h1>Form</h1>
+      <Form
+        formDef={formDef}
+        isLoading={isLoading}
+        onSuccess={handleSubmit}
+        errors={errors}
+      />
+    </>
   );
 };

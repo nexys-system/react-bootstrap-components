@@ -3,7 +3,7 @@ import * as T from "../type";
 
 import View from "../view";
 import GenericForm from "../form";
-import Icon from "../../../icon";
+
 import { BtnBack, BtnEdit } from "../../../button/actions";
 
 const Toggle = <A,>({ data, structure, onSubmit }: T.ToggleProps<A>) => {

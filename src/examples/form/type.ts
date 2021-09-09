@@ -1,6 +1,9 @@
 export enum FormType {
   Number,
-  Text
+  Text,
+  Select,
+  SelectObject,
+  Switch,
 }
 
 export interface FormDef<A> {
@@ -8,4 +11,5 @@ export interface FormDef<A> {
   label?: string;
   uiType: FormType;
   optional: boolean;
+  options?: { id: number; name: string }[];
 }

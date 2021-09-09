@@ -3,11 +3,10 @@ import { Route, Switch } from "react-router-dom";
 import Home from "./home";
 import * as Links from "./links";
 
-import Form from "./form";
-
+import Form from "./examples/form";
 import Buttons from "./examples/buttons";
 import Tabs from "./examples/tabs";
-import FormContext from "./examples/form";
+import FormContext from "./examples/form-context";
 import List from "./examples/list";
 
 const NotFound = () => (

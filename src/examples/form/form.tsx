@@ -1,6 +1,6 @@
 import React from "react";
 
-import * as Form from "../components/form";
+import * as Form from "../../components/form";
 import FormUnit from "./unit";
 
 import * as T from "./type";
@@ -61,6 +61,7 @@ const FormGenerator = <A, B>({
               errors={errorUnit}
               value={data[fd.name]}
               onChange={(v) => setData({ ...data, [fd.name]: v })}
+              options={fd.options}
               disabled={isLoading}
             />
           </Form.Wrapper>

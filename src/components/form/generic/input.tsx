@@ -3,7 +3,6 @@ import React from "react";
 import * as T from "./type";
 
 import * as Inputs from "../input";
-import * as Select from "../select";
 
 interface InputProps<A> {
   onChange: (v: A) => void;
@@ -30,7 +29,7 @@ const GenericInput = <A,>({
         throw Error("options were not given");
       }
       return (
-        <Select.default
+        <Inputs.Select.Scalar
           options={options}
           value={value as any as number | string}
           onChange={onChange as any}

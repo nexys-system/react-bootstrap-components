@@ -30,6 +30,7 @@
   "scripts": {
     "start": "SNOWPACK_PUBLIC_URL= snowpack dev",
     "build": "snowpack build",
+    "buildTs": "tsc",
     "test": "jest",
     "buildpackage": "tsc -p tsconfig.build.json"
   },

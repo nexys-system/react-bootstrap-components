@@ -1,30 +1,16 @@
 import React from "react";
 import * as T from "../type";
+import { getValue } from "./utils";
 
-const getValue = <A extends number | string>(
-  v: string | undefined
-): A | undefined => {
-  if (v === "" || v === undefined) {
-    return undefined;
-  }
-
-  const vn = Number(v);
-  if (isNaN(vn)) {
-    return v as A;
-  }
-
-  return vn as A;
-};
-
-export const Select = <A extends number | string>({
+export const Select = <Id extends number | string>({
   options,
   value,
   onChange = (v) =>
     console.log(`onChange not yet implemented, selected value: ${v}`),
   errors,
 }: {
-  options: { id: A; name: string }[];
-} & T.InputProps<A>) => (
+  options: { id: Id; name: string }[];
+} & T.InputProps<Id>) => (
   <select
     className={
       "form-control" + (errors && errors.length > 0 ? "  is-invalid" : "")
