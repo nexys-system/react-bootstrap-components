@@ -31,11 +31,15 @@ export interface SelectOptionSetProps<A> extends InputProps<OptionSet<A>> {
 
 export type TypeUnit = "string" | "number" | "category";
 
-export interface StructureUnit<A> {
+export interface StructureViewUnit<A> {
   name: keyof A;
   label: string;
-  type?: TypeUnit;
   options?: { id: number; name: string }[];
+  render?: (a: A) => string;
+}
+
+export interface StructureUnit<A> extends StructureViewUnit<A> {
+  type?: TypeUnit;
 }
 
 export interface FormProps<A> {

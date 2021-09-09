@@ -10,9 +10,9 @@ export default () => (
     <p>Examples below</p>
 
     <ul>
-      {Links.menus.map((menu) => {
+      {Links.menus.map((menu, i) => {
         return (
-          <li>
+          <li key={i}>
             <Link to={menu.link}>{menu.name}</Link>
           </li>
         );
