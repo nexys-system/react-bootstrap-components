@@ -17,6 +17,7 @@ interface Data {
   firstName: string;
   age: number;
   cat: DataCategory;
+  catObject: { id: number };
 }
 
 const formDef: FormDef<Data>[] = [
@@ -31,6 +32,16 @@ const formDef: FormDef<Data>[] = [
     name: "cat",
     label: "Category",
     uiType: FormType.Select,
+    optional: false,
+    options: [
+      { id: 1, name: "cat #1" },
+      { id: 2, name: "cat #2" },
+    ],
+  },
+  {
+    name: "catObject",
+    label: "Category 2",
+    uiType: FormType.SelectObject,
     optional: false,
     options: [
       { id: 1, name: "cat #1" },

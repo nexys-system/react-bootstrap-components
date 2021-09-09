@@ -21,11 +21,13 @@ export const uiTypeToVType = (t: FormType): V.Type.FieldType => {
     case FormType.Number:
     case FormType.Select:
       return "number";
+    case FormType.SelectObject:
+      return "object";
     case FormType.Text:
       return "string";
   }
 
-  throw Error("could not map");
+  throw Error("could not map UI type to V type");
 };
 
 export const generateValidatorFromDef = <A>(df: FormDef<A>[]) => {

@@ -36,7 +36,7 @@ const FormGenerator = <A,>({
     if (Object.values(v).length === 0) {
       //
       //alert(JSON.stringify(v));
-
+      //console.log(JSON.stringify(data));
       onSuccess(data as A);
     }
   };

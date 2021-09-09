@@ -50,7 +50,7 @@ export default () => {
   };
 
   const toggle = (
-    <Toggle onSubmit={handleSubmit} data={sampleData} structure={structure} />
+    <Toggle onSubmit={handleSubmit} data={sampleData} formDef={structure} />
   );
   const view = <View data={sampleData} structure={structure} />;
   const form = (
