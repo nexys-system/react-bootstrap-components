@@ -24,8 +24,8 @@ const GenericFrom = <A,>({
   };
 
   return (
-    <>
-      <Form onSubmit={() => handleSubmit()}>
+    <Form onSubmit={() => handleSubmit()}>
+      <>
         {structure.map((structureUnit, i) => {
           const inputErrors: string[] | undefined =
             errors && errors[structureUnit.name];
@@ -43,15 +43,13 @@ const GenericFrom = <A,>({
             </Wrapper>
           );
         })}
-
-        <Wrapper>
-          <button type="submit" className={"btn btn-primary"}>
-            Submit
-          </button>
-        </Wrapper>
-      </Form>
-      {/*<pre>{JSON.stringify(form, null, 2)}</pre>*/}
-    </>
+      </>
+      <Wrapper>
+        <button type="submit" className={"btn btn-primary"}>
+          Submit
+        </button>
+      </Wrapper>
+    </Form>
   );
 };
 

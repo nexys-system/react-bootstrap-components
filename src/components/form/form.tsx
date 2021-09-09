@@ -1,24 +1,33 @@
 import React from "react";
 
+export const FormGeneric = (
+  FormElement: ({
+    onSubmit,
+  }: {
+    onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  }) => JSX.Element
+) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    //onSubmit();
+  };
+
+  return <FormElement onSubmit={handleSubmit} />;
+};
+
 export const Form = ({
   onSubmit,
   children,
 }: {
   onSubmit: () => void;
-  children: any; //JSX.Element[]; // JSX.Eleemtn //React.ReactChildren;
+  children: JSX.Element[] | JSX.Element;
 }) => {
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onSubmit();
   };
 
-  return (
-    <form onSubmit={handleSubmit}>
-      {/*<div className="form-row align-items-center">*/}
-      {children}
-      {/*  </div>*/}
-    </form>
-  );
+  return <form onSubmit={handleSubmit}>{children}</form>;
 };
 
 export default Form;

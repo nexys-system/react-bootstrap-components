@@ -1,6 +1,6 @@
 import React from "react";
 import * as T from "../../headless/type";
-import { getValue } from "./utils";
+import { getValue } from "../../headless/utils";
 
 export const Select = <Id extends number | string>({
   options,
