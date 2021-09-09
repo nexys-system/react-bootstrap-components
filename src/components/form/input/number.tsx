@@ -1,12 +1,12 @@
 import React from "react";
-import * as T from "./type";
+import * as T from "../headless/type";
 
 export const InputNumber = ({
   value,
   onChange,
   errors,
   disabled,
-}: T.InputProps<number | undefined>) => (
+}: T.InputProps<number>) => (
   <input
     className={
       "form-control" + (errors && errors.length > 0 ? "  is-invalid" : "")

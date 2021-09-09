@@ -1,5 +1,5 @@
 import React from "react";
-import * as T from "./type";
+import * as T from "../headless/type";
 
 export const InputText = ({
   value,

@@ -2,7 +2,7 @@ import React from "react";
 
 import Form from "../form";
 import Wrapper from "../wrapper";
-import * as T from "./type";
+import * as T from "../headless/type";
 import GenericInput from "./input";
 
 const GenericFrom = <A,>({
@@ -33,7 +33,7 @@ const GenericFrom = <A,>({
             <Wrapper key={i} label={structureUnit.label} errors={inputErrors}>
               <GenericInput
                 type={structureUnit.type || "string"}
-                value={form[structureUnit.name] || ""}
+                value={(form[structureUnit.name] as any) || ""}
                 onChange={(value) =>
                   setForm({ ...form, [structureUnit.name]: value })
                 }

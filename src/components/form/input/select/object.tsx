@@ -1,5 +1,5 @@
 import React from "react";
-import { SelectOptionSetProps } from "../type";
+import { SelectOptionSetProps } from "../../headless/type";
 
 import Select from "./index";
 
