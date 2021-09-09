@@ -1,4 +1,4 @@
-export const SNOWPACK_PUBLIC_GIT_SHA = "22a3ace64798a0943b8ce2d311f33935749a320b";
+export const SNOWPACK_PUBLIC_GIT_SHA = "9cdfb7ab4c1dba66e15f1ef0f669c38c8d7f4d0d";
 export const SNOWPACK_PUBLIC_URL = "/react-bootstrap-components";
 export const MODE = "development";
 export const NODE_ENV = "development";
