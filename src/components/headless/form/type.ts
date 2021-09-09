@@ -77,8 +77,6 @@ export interface FormProps2<A> {
   onSuccess: (v: A) => void;
   valueDefault?: Partial<A>;
   errors?: V.Type.ErrorOut | V.Type.Error;
-
-  submit?: { label: string };
   isLoading?: boolean;
 }
 

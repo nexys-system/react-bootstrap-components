@@ -1,6 +1,6 @@
 import React from "react";
 
-import FormGeneric from "../../headless/form/generic";
+import FormGeneric from "../../headless/form/generator-old";
 import * as T from "../../headless/form/type";
 
 import Layout from "../layout";

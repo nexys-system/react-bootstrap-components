@@ -1,6 +1,6 @@
 import React from "react";
 
-import Form from "../../components/form/generic/generator2";
+import Form from "../../components/form/generic/generator";
 
 import * as V from "@nexys/validation";
 import * as Ctx from "../../components/notifications/context";

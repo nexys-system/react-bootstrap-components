@@ -1,6 +1,6 @@
 import React from "react";
 
-import GenericForm from "../../components/form/generic/generator2";
+import GenericForm from "../../components/form/generic/generator";
 import View from "../../components/form/generic/view";
 import Toggle from "../../components/form/generic/toggle";
 import { SwapComponent } from "../../components/tabs";

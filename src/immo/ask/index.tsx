@@ -1,5 +1,5 @@
 import React from "react";
-import Form from "../../components/form/generic/generator2";
+import Form from "../../components/form/generic/generator";
 
 import * as V from "@nexys/validation";
 import { FormDef, FormType } from "../../components/headless/form/type";
