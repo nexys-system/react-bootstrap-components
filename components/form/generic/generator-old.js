@@ -1,5 +1,5 @@
 import React from "../../../_snowpack/pkg/react.js";
-import FormGeneric from "../../headless/form/generic.js";
+import FormGeneric from "../../headless/form/generator-old.js";
 import Layout from "../layout.js";
 import Wrapper from "../wrapper.js";
 import GenericInput from "./input.js";

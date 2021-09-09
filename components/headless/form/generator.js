@@ -1,15 +1,12 @@
 import React from "../../../_snowpack/pkg/react.js";
-import {Wrapper} from "../index.js";
-import FormUnit from "./input.js";
 import * as V from "../../../_snowpack/pkg/@nexys/validation.js";
-import * as U from "../../headless/form/utils.js";
-const FormGenerator = ({
+import * as U from "./utils.js";
+const FormGenerator = (Wrapper, FormUnit, BtnSubmit) => ({
   formDef,
   onSuccess,
   isLoading = false,
   valueDefault = {},
-  errors: errorsDefault,
-  submit = {label: "Submit"}
+  errors: errorsDefault
 }) => {
   const [data, setData] = React.useState(valueDefault);
   const [errors, setErrors] = React.useState(errorsDefault);
@@ -42,16 +39,8 @@ const FormGenerator = ({
       options: fd.options,
       disabled: isLoading
     }));
-  }), /* @__PURE__ */ React.createElement("button", {
-    disabled: isLoading,
-    type: "submit",
-    className: "btn btn-primary"
-  }, isLoading && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("span", {
-    className: "spinner-border spinner-border-sm",
-    role: "status",
-    "aria-hidden": "true"
-  }), /* @__PURE__ */ React.createElement("span", {
-    className: "sr-only"
-  }, "...Loading")), !isLoading && /* @__PURE__ */ React.createElement(React.Fragment, null, submit.label)));
+  }), /* @__PURE__ */ React.createElement(BtnSubmit, {
+    isLoading
+  }));
 };
 export default FormGenerator;
