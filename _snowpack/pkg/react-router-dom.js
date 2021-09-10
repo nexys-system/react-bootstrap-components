@@ -2234,6 +2234,10 @@ function (_React$Component) {
 }(react.Component);
 
 var useContext = react.useContext;
+function useHistory() {
+
+  return useContext(historyContext);
+}
 function useLocation() {
 
   return useContext(context).location;
@@ -2479,4 +2483,4 @@ forwardRef$1(function (_ref, forwardedRef) {
   });
 });
 
-export { BrowserRouter, Link, Route, Switch, useLocation };
+export { BrowserRouter, Link, Route, Switch, useHistory, useLocation };
