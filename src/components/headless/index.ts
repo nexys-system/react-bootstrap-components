@@ -1,7 +1,9 @@
 export * as Form from "./form";
 export * as View from "./view";
 
-import Toggle from "./toggle";
 import WLoader from "./w-loader";
+import Delete from "./delete";
+import Toggle from "./toggle";
+import Toggle2 from "./toggle2";
 
-export { Toggle, WLoader };
+export { WLoader, Delete, Toggle, Toggle2 };
