@@ -28,14 +28,18 @@ const List = <A extends { id: number }>({
   def,
   addLink,
   editLink,
+  config,
 }: {
   getData: () => Promise<A[]>;
   addLink?: string;
   editLink?: (id: number) => string;
   def: Types.Definition<A>;
+  config?: Types.Config<A>;
 }) => (
   <ListLayout
-    Table={({ data }) => <Table data={data} def={getDefWEdit(def, editLink)} />}
+    Table={({ data }) => (
+      <Table data={data} def={getDefWEdit(def, editLink)} config={config} />
+    )}
     addLink={addLink}
     getData={getData}
   />
