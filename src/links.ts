@@ -1,6 +1,6 @@
 export const links = {
   form: { name: "Form", link: "/form" },
-  formSimple: { name: "Form Simple", link: "/form-simple" },
+  formAdd: { name: "Form Add", link: "/form-add" },
   formContext: { name: "Form Context", link: "/form-context" },
   tabs: { name: "Tabs", link: "/tabs" },
   buttons: { name: "Buttons", link: "/buttons" },

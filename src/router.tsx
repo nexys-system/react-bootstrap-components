@@ -9,7 +9,7 @@ import Buttons from "./examples/buttons";
 import Tabs from "./examples/tabs";
 import FormContext from "./examples/form-context";
 import List from "./examples/list";
-import FormSimple from "./examples/form-simple";
+import FormAdd from "./examples/form-add";
 
 const NotFound = () => (
   <p>
@@ -23,7 +23,7 @@ export default () => {
       <Route exact path={"/"} component={Home} />
 
       <Route exact path={Links.links.form.link} component={Form} />
-      <Route exact path={Links.links.formSimple.link} component={FormSimple} />
+      <Route exact path={Links.links.formAdd.link} component={FormAdd} />
       <Route
         exact
         path={Links.links.formContext.link}

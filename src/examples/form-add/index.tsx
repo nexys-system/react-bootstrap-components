@@ -20,7 +20,8 @@ const Form = FormGeneric2.FormWDef(defs);
 
 const insert = (a: any) => {
   console.log(a);
+  alert(JSON.stringify(a) + " will now be redirected to home page");
   return Promise.resolve({ id: 1 });
 };
 
-export default AddGeneric<Domain>(insert, Form, "/form-simple");
+export default AddGeneric<Domain>(insert, Form, "/");
