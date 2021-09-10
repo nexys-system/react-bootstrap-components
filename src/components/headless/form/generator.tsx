@@ -1,6 +1,6 @@
 import React from "react";
 
-import * as V from "@nexys/validation";
+import { Main as ValidationMain, Type as VType } from "@nexys/validation";
 import * as U from "./utils";
 import { FormProps, InputUnitProps, WrapperProps } from "./type";
 
@@ -19,7 +19,7 @@ const FormGenerator =
   }: FormProps<A>) => {
     const [data, setData] = React.useState<Partial<A>>(valueDefault);
     const [errors, setErrors] = React.useState<
-      V.Type.ErrorOut | V.Type.Error | undefined
+      VType.ErrorOut | VType.Error | undefined
     >(errorsDefault);
 
     React.useEffect(() => {
@@ -33,7 +33,7 @@ const FormGenerator =
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
       event.preventDefault();
 
-      const v = V.Main.checkObject(data, validator);
+      const v = ValidationMain.checkObject(data, validator);
       // console.log(v);
       setErrors(v);
 
