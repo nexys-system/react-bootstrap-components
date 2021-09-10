@@ -10,7 +10,7 @@ import { isNullType } from "./utils";
 export const WLoader =
   <NullType extends string>(
     Loader: (props: any) => JSX.Element,
-    nullPlaceholder: NullType
+    nullPlaceholder: NullType = "null" as NullType
   ) =>
   <T,>({
     getData,
@@ -19,7 +19,7 @@ export const WLoader =
     getData: () => Promise<T>;
     Component: ({ data }: { data: T }) => JSX.Element;
   }) => {
-    const [data, setData] = React.useState<T | NullType>();
+    const [data, setData] = React.useState<T | NullType>(nullPlaceholder);
 
     if (isNullType<T, NullType>(data, nullPlaceholder)) {
       return <Component data={data} />;
