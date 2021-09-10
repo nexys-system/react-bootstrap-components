@@ -1,7 +1,7 @@
 import React from "react";
 import { SelectOptionSetProps } from "../../../headless/form/type";
 
-import Select from "./index";
+import Select from "./scalar";
 
 export default <A extends string | number>({
   options,
