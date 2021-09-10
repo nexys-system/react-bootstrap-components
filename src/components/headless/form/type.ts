@@ -55,6 +55,8 @@ export interface StructureViewUnit<A, Id = number> {
 
 export type FormOptions<Id> = OptionSet<Id>[];
 
+export type FormOptionsMap<A> = Map<keyof A, FormOptions<number | string>>;
+
 export interface FormDef<A, Id = number> {
   name: keyof A;
   label?: string;
@@ -73,6 +75,7 @@ export interface FormProps<A> {
   valueDefault?: Partial<A>;
   errors?: V.Type.ErrorOut | V.Type.Error;
   isLoading?: boolean;
+  options?: FormOptionsMap<A>;
 }
 
 export type ToggleProps<A> = Omit<FormProps<A>, "valueDefault"> & {
@@ -83,3 +86,10 @@ export type InputUnitProps<Id> = {
   type: FormType;
   options?: OptionSet<number | string>[];
 } & InputProps<Id>;
+
+export interface FormContentProps<A> {
+  disabled: boolean;
+  data: A;
+  onChange: (d: string, name: keyof A) => void;
+  options?: FormOptions<A>;
+}
