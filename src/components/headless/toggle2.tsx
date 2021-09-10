@@ -12,7 +12,7 @@ export const ToggleHeadless =
   (ToggleLayout: (props: ToggleLayoutProps) => JSX.Element) =>
   <A, Id = number>(
     Edit: (a: EditProps<A, Id>) => JSX.Element,
-    View: ({ data: A }) => JSX.Element
+    View: (a: { data: A }) => JSX.Element
   ) =>
   ({ id, data, formOptions }: EditProps<A, Id>) => {
     const [isEdit, setEdit] = React.useState<boolean>(false);
