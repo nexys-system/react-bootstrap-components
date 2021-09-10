@@ -1,25 +1,5 @@
 import React from "react";
 
-import * as UIType from "@nexys/core-list";
-
-import LoaderMain from "../../../components/loader";
-
-const Loader = () => <LoaderMain />;
-
-const { paginationBoundaries } = UIType.PaginationUtils;
-
-const Alert = ({
-  // type = 'success',
-  children,
-}: {
-  children: React.ReactNode | JSX.Element;
-  type?: "error" | "success" | "info" | "warning";
-}): JSX.Element => <div className={"alert"}>{children}</div>;
-
-const GlobalSearch = () => <></>;
-const PopoverFilter = () => <></>;
-const FilterUnit = () => <></>;
-
 import {
   HeaderUnitProps,
   PaginationUnitProps,
@@ -34,7 +14,40 @@ import {
   PaginationWrapperProps,
   OrderControllerUpAndDownProps,
   OrderControllerProps,
+  GlobalSearchProps,
 } from "@nexys/core-list/dist/list/ui-type";
+
+import * as UIType from "@nexys/core-list";
+
+import LoaderMain from "../../loader";
+
+const Loader = () => <LoaderMain />;
+
+const { paginationBoundaries } = UIType.PaginationUtils;
+
+const Alert = ({
+  children,
+}: {
+  children: React.ReactNode | JSX.Element;
+  type?: "error" | "success" | "info" | "warning";
+}): JSX.Element => <div className={"alert"}>{children}</div>;
+
+const GlobalSearch = (p: GlobalSearchProps) => (
+  <div className="row">
+    <div className="col-md-3">
+      <input
+        placeholder={"Search"}
+        type="text"
+        className="form-control"
+        onChange={(x) =>
+          p.onChange({ name: "globalSearch", value: x.target.value })
+        }
+      />
+    </div>
+  </div>
+);
+const PopoverFilter = () => <></>;
+const FilterUnit = () => <></>;
 
 export const NoRow = (props: NoRowProps): JSX.Element | null => {
   if (props.n > 0) {

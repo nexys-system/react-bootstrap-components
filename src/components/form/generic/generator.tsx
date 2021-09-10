@@ -1,7 +1,7 @@
 import React from "react";
 
 import FormGenerator from "../../headless/form/generator";
-import { FormProps2 } from "../../headless/form/type";
+import { FormProps } from "../../headless/form/type";
 import { Wrapper } from "../index";
 import FormUnit from "./input";
 
@@ -22,5 +22,5 @@ const BtnSubmit = ({ isLoading }: { isLoading: boolean }) => (
   </button>
 );
 
-export default <A,>(p: FormProps2<A>) =>
+export default <A,>(p: FormProps<A>) =>
   FormGenerator<A>(Wrapper, FormUnit, BtnSubmit)(p);

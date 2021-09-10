@@ -1,13 +1,14 @@
-import React from 'react';
+import React from "react";
 
-import List from './init';
+import List from "../../components/list";
 
 const Default = (): JSX.Element => (
   <List
-    data={[{ name: 'Doe', firstName: 'John' }]}
+    data={[{ name: "Doe", firstName: "John" }]}
     def={[
-      { name: 'name', label: 'Name' },
-      { name: 'firstName', label: 'First Name' }
+      { name: "name", label: "Name" },
+      { name: "firstName", label: "First Name" },
+      { name: "uuid", label: "Custom", render: () => "hello" },
     ]}
   />
 );

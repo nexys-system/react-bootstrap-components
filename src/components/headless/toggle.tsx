@@ -4,16 +4,16 @@ import { ViewProps } from "./view/type";
 
 const ToggleGeneric =
   <A,>(
-    GenericForm: (props: T.FormProps2<A>) => JSX.Element,
+    GenericForm: (props: T.FormProps<A>) => JSX.Element,
     View: (props: ViewProps<A>) => JSX.Element,
     BtnBack: (props: { onClick: () => void }) => JSX.Element,
     BtnEdit: (props: { onClick: () => void }) => JSX.Element
   ) =>
-  ({ data, formDef, onSubmit }: T.ToggleProps<A>) => {
+  ({ data, formDef, onSuccess }: T.ToggleProps<A>) => {
     const [isEdit, setEdit] = React.useState(false);
 
     const handleSubmit = async (data: Partial<A>) =>
-      onSubmit(data).then((x) => {
+      onSuccess(data as A).then((x) => {
         setEdit(false);
       });
 

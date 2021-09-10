@@ -68,22 +68,15 @@ export interface StructureUnit<A> extends StructureViewUnit<A> {
 }
 
 export interface FormProps<A> {
-  data: Partial<A>;
-  structure: StructureUnit<A>[];
-  errors?: { [k in keyof A]?: string[] };
-  onSubmit: (data: Partial<A>) => Promise<void>;
-}
-
-export interface FormProps2<A> {
   formDef: FormDef<A>[];
-  onSuccess: (v: A) => void;
+  onSuccess: (v: A) => Promise<void>;
   valueDefault?: Partial<A>;
   errors?: V.Type.ErrorOut | V.Type.Error;
   isLoading?: boolean;
 }
 
-export type ToggleProps<A> = Omit<FormProps<A>, "structure"> & {
-  formDef: FormDef<A>[];
+export type ToggleProps<A> = Omit<FormProps<A>, "valueDefault"> & {
+  data: A;
 };
 
 export type InputUnitProps<Id> = {
