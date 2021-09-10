@@ -10,7 +10,8 @@ import Card from "./card";
 import Detail from "./detail";
 import Delete from "./delete";
 import Edit from "./edit";
-import List from "./list";
+import * as List from "./list";
+import Table from "./table";
 import Toggle from "./toggle";
 
 import Icon from "./icon";
@@ -28,6 +29,7 @@ export {
   List,
   Loader,
   ProgressBar,
+  Table,
   Toggle,
   WLoader,
 };

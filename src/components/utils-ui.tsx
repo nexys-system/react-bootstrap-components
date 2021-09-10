@@ -30,3 +30,9 @@ export const LinkBack = ({ link }: { link: string }) => (
     </>
   </LinkBtn>
 );
+
+export const EditBtn = ({ link }: { link: string }) => (
+  <Link to={link}>
+    <Icon name={"arrow-right"} />
+  </Link>
+);
