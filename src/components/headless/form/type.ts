@@ -91,5 +91,5 @@ export interface FormContentProps<A> {
   disabled: boolean;
   data: A;
   onChange: (d: string, name: keyof A) => void;
-  options?: FormOptions<A>;
+  options?: FormOptionsMap<A>;
 }
