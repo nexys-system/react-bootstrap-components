@@ -1,6 +1,6 @@
 import React from "../../../_snowpack/pkg/react.js";
 import * as UIType from "../../../_snowpack/pkg/@nexys/core-list.js";
-import LoaderMain from "../../../components/loader/index.js";
+import LoaderMain from "../../loader/index.js";
 const Loader = () => /* @__PURE__ */ React.createElement(LoaderMain, null);
 const {paginationBoundaries} = UIType.PaginationUtils;
 const Alert = ({
@@ -8,7 +8,16 @@ const Alert = ({
 }) => /* @__PURE__ */ React.createElement("div", {
   className: "alert"
 }, children);
-const GlobalSearch = () => /* @__PURE__ */ React.createElement(React.Fragment, null);
+const GlobalSearch = (p) => /* @__PURE__ */ React.createElement("div", {
+  className: "row"
+}, /* @__PURE__ */ React.createElement("div", {
+  className: "col-md-3"
+}, /* @__PURE__ */ React.createElement("input", {
+  placeholder: "Search",
+  type: "text",
+  className: "form-control",
+  onChange: (x) => p.onChange({name: "globalSearch", value: x.target.value})
+})));
 const PopoverFilter = () => /* @__PURE__ */ React.createElement(React.Fragment, null);
 const FilterUnit = () => /* @__PURE__ */ React.createElement(React.Fragment, null);
 export const NoRow = (props) => {

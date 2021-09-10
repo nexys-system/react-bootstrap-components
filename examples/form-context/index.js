@@ -36,7 +36,7 @@ export default () => {
     return Promise.resolve();
   };
   const toggle = /* @__PURE__ */ React.createElement(Toggle, {
-    onSubmit: handleSubmit,
+    onSuccess: handleSubmit,
     data: sampleData,
     formDef: structure
   });
