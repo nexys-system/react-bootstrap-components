@@ -9,9 +9,9 @@ const FormUI =
   ({ disabled, data, onChange, options }: FormContentProps<T>) =>
     (
       <>
-        {defs.map(({ name, uiType }, i) => {
+        {defs.map(({ label, name, uiType }, i) => {
           return (
-            <Wrapper key={i} label={name as string}>
+            <Wrapper key={i} label={label || (name as string)}>
               <InputGeneric
                 type={uiType}
                 options={options ? options.get(name) : []}

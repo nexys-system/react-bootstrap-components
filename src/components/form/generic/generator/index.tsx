@@ -1,9 +1,9 @@
 import React from "react";
 
-import FormGenerator from "../../headless/form/generator";
-import { FormProps } from "../../headless/form/type";
-import { Wrapper } from "../index";
-import FormUnit from "./input";
+import FormGenerator from "../../../headless/form/generator";
+import { FormDef, FormProps } from "../../../headless/form/type";
+import { Wrapper } from "../../index";
+import FormUnit from "../input";
 
 const BtnSubmit = ({ isLoading }: { isLoading: boolean }) => (
   <button disabled={isLoading} type="submit" className={"btn btn-primary"}>
@@ -21,6 +21,12 @@ const BtnSubmit = ({ isLoading }: { isLoading: boolean }) => (
     {!isLoading && <>Submit</>}
   </button>
 );
+
+export const FormWDef = <A,>(formDef: FormDef<A>[]) => {
+  const F = FormGenerator<A>(Wrapper, FormUnit, BtnSubmit);
+
+  return (p: Omit<FormProps<A>, "formDef">) => <F formDef={formDef} {...p} />;
+};
 
 export default <A,>(p: FormProps<A>) =>
   FormGenerator<A>(Wrapper, FormUnit, BtnSubmit)(p);

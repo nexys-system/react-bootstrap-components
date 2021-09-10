@@ -30,7 +30,7 @@ const FormGenerator =
     // console.log(validator);
     // console.log(JSON.stringify(data));
 
-    const handleSubmit = (event: any): void => {
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
       event.preventDefault();
 
       const v = V.Main.checkObject(data, validator);
