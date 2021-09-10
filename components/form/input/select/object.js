@@ -3,7 +3,8 @@ import Select from "./index.js";
 export default ({
   options,
   onChange,
-  disabled
+  disabled,
+  errors
 }) => {
   const handleChange = (v) => {
     const vOptionSet = options.find((x) => x.id === v);
@@ -14,6 +15,7 @@ export default ({
   return /* @__PURE__ */ React.createElement(Select, {
     onChange: handleChange,
     disabled,
-    options
+    options,
+    errors
   });
 };
