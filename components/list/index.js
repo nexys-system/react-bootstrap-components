@@ -18,11 +18,13 @@ const List = ({
   getData,
   def,
   addLink,
-  editLink
+  editLink,
+  config
 }) => /* @__PURE__ */ React.createElement(ListLayout, {
   Table: ({data}) => /* @__PURE__ */ React.createElement(Table, {
     data,
-    def: getDefWEdit(def, editLink)
+    def: getDefWEdit(def, editLink),
+    config
   }),
   addLink,
   getData
