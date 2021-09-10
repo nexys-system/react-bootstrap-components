@@ -34,6 +34,7 @@ const FormGenerator =
       event.preventDefault();
 
       const v = V.Main.checkObject(data, validator);
+      // console.log(v);
       setErrors(v);
 
       // no errors found
@@ -45,12 +46,15 @@ const FormGenerator =
       }
     };
 
+    //console.log({ errors });
+
     return (
       <form onSubmit={handleSubmit}>
         {formDef.map((fd, i) => {
           const name = fd.name;
           const errorUnit: string[] | undefined =
             errors && (errors as any)[name as any];
+          //console.log(name, errorUnit);
           return (
             <Wrapper errors={errorUnit} key={i} label={fd.label}>
               <FormUnit

@@ -7,6 +7,7 @@ export default <A extends string | number>({
   options,
   onChange,
   disabled,
+  errors,
 }: SelectOptionSetProps<A>) => {
   const handleChange = (v: A | undefined) => {
     const vOptionSet = options.find((x) => x.id === v);
@@ -17,6 +18,11 @@ export default <A extends string | number>({
   };
 
   return (
-    <Select<A> onChange={handleChange} disabled={disabled} options={options} />
+    <Select<A>
+      onChange={handleChange}
+      disabled={disabled}
+      options={options}
+      errors={errors}
+    />
   );
 };
