@@ -12,6 +12,7 @@ const defs = [
 const Form = FormGeneric2.FormWDef(defs);
 const insert = (a) => {
   console.log(a);
+  alert(JSON.stringify(a) + " will now be redirected to home page");
   return Promise.resolve({id: 1});
 };
-export default AddGeneric(insert, Form, "/form-simple");
+export default AddGeneric(insert, Form, "/");
