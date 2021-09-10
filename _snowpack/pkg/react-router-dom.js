@@ -2242,6 +2242,11 @@ function useLocation() {
 
   return useContext(context).location;
 }
+function useParams() {
+
+  var match = useContext(context).match;
+  return match ? match.params : {};
+}
 
 /**
  * The public API for a <Router> that uses HTML5 history.
@@ -2483,4 +2488,4 @@ forwardRef$1(function (_ref, forwardedRef) {
   });
 });
 
-export { BrowserRouter, Link, Route, Switch, useHistory, useLocation };
+export { BrowserRouter, Link, Route, Switch, useHistory, useLocation, useParams };
