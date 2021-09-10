@@ -1,5 +1,5 @@
 import React from "../../_snowpack/pkg/react.js";
-import Form from "../../components/form/generic/generator.js";
+import Form from "../../components/form/generic/generator/index.js";
 import {FormType} from "../../components/headless/form/type.js";
 var Permit;
 (function(Permit2) {

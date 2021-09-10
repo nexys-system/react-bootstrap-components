@@ -1,4 +1,4 @@
-import Generator from "./generator.js";
+import Generator from "./generator/index.js";
 import GeneratorSimple from "./generator-simple/index.js";
 import Input from "./input.js";
 import Toggle from "./toggle/index.js";

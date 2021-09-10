@@ -1,5 +1,5 @@
 import React from "../../_snowpack/pkg/react.js";
-import GenericForm from "../../components/form/generic/generator.js";
+import GenericForm from "../../components/form/generic/generator/index.js";
 import View from "../../components/form/generic/view/index.js";
 import Toggle from "../../components/form/generic/toggle/index.js";
 import {SwapComponent} from "../../components/tabs/index.js";
