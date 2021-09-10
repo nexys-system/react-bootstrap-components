@@ -1,5 +1,5 @@
 import React from "../../../../_snowpack/pkg/react.js";
-import Select from "./index.js";
+import Select from "./scalar.js";
 export default ({
   options,
   onChange,
