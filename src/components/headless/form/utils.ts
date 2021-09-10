@@ -25,9 +25,9 @@ export const uiTypeToVType = (t: FormType): V.Type.FieldType => {
       return "object";
     case FormType.Text:
       return "string";
+    case FormType.Switch:
+      return "boolean";
   }
-
-  throw Error("could not map UI type to V type");
 };
 
 export const generateValidatorFromDef = <A>(df: FormDef<A>[]) => {

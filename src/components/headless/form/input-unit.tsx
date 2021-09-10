@@ -6,6 +6,7 @@ const InputUnitGeneric =
   (
     InputText: (a: TT.InputProps<string>) => JSX.Element,
     InputNumber: (a: TT.InputProps<number>) => JSX.Element,
+    InputSwitch: (a: TT.InputProps<boolean>) => JSX.Element,
     InputSelectScalar: (a: TT.SelectProps<number | string>) => JSX.Element,
     InputSelectObject: (
       a: TT.SelectOptionSetProps<number | string>
@@ -41,13 +42,17 @@ const InputUnitGeneric =
         return (
           <InputNumber value={value} onChange={onChange} errors={errors} />
         );
-      default:
+      case TT.FormType.Text:
         return (
           <InputText
             value={value as any}
             onChange={onChange as any}
             errors={errors}
           />
+        );
+      case TT.FormType.Switch:
+        return (
+          <InputSwitch value={value} onChange={onChange} errors={errors} />
         );
     }
   };

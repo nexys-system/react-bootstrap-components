@@ -18,6 +18,7 @@ interface Data {
   age: number;
   cat: DataCategory;
   catObject: { id: number };
+  isAccept: boolean;
 }
 
 const formDef: FormDef<Data>[] = [
@@ -48,6 +49,12 @@ const formDef: FormDef<Data>[] = [
       { id: 2, name: "cat #2" },
     ],
   },
+  {
+    name: "isAccept",
+    label: "Accept conditions",
+    uiType: FormType.Switch,
+    optional: false,
+  },
 ];
 
 export default () => {
@@ -55,7 +62,8 @@ export default () => {
   const [errors, setErrors] = React.useState<V.Type.ErrorOut | V.Type.Error>();
   const { setNotification } = Ctx.useToastContext();
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (v: Data) => {
+    console.log(v);
     setLoading(true);
 
     setTimeout(() => {

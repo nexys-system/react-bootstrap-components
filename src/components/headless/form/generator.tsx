@@ -27,8 +27,8 @@ const FormGenerator =
     }, [errorsDefault]);
 
     const validator = U.generateValidatorFromDef(formDef);
-    console.log(validator);
-    console.log(JSON.stringify(data));
+    // console.log(validator);
+    // console.log(JSON.stringify(data));
 
     const handleSubmit = (event: any): void => {
       event.preventDefault();
