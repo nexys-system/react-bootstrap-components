@@ -46,19 +46,21 @@ export enum FormType {
   Switch,
 }
 
-export interface StructureViewUnit<A> {
+export interface StructureViewUnit<A, Id = number> {
   name: keyof A;
   label?: string;
-  options?: { id: number; name: string }[];
+  options?: FormOptions<Id>;
   render?: (a: A) => string;
 }
 
-export interface FormDef<A> {
+export type FormOptions<Id> = OptionSet<Id>[];
+
+export interface FormDef<A, Id = number> {
   name: keyof A;
   label?: string;
   uiType: FormType;
   optional: boolean;
-  options?: { id: number; name: string }[];
+  options?: FormOptions<Id>;
 }
 
 export interface StructureUnit<A> extends StructureViewUnit<A> {
