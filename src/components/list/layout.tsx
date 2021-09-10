@@ -13,7 +13,7 @@ const ListLayout = <A,>({
   addLink?: string;
 }) => (
   <>
-    <UtilsUi.LinkAdd link={addLink} />
+    {addLink && <UtilsUi.LinkAdd link={addLink} />}
     <WLoader getData={getData} Component={Table} />
   </>
 );

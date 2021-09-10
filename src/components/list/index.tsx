@@ -7,6 +7,22 @@ import * as UtilsUI from "../utils-ui";
 
 import ListLayout from "./layout";
 
+const getDefWEdit = <A extends { id: number }>(
+  def: Types.Definition<A>,
+  editLink?: (id: number) => string
+): Types.Definition<A> => {
+  if (!editLink) {
+    return def;
+  }
+
+  const defEdit: Types.DefinitionItem<A> = {
+    name: "id",
+    render: (x) => <UtilsUI.EditBtn link={editLink(x.id)} />,
+  };
+
+  return [...def, defEdit];
+};
+
 const List = <A extends { id: number }>({
   getData,
   def,
@@ -17,19 +33,12 @@ const List = <A extends { id: number }>({
   addLink?: string;
   editLink?: (id: number) => string;
   def: Types.Definition<A>;
-}) => {
-  const d: Types.DefinitionItem<A> = {
-    name: "id",
-    render: (x) => <UtilsUI.EditBtn link={editLink(x.id)} />,
-  };
-
-  return (
-    <ListLayout
-      Table={({ data }) => <Table data={data} def={[...def, d]} />}
-      addLink={addLink}
-      getData={getData}
-    />
-  );
-};
+}) => (
+  <ListLayout
+    Table={({ data }) => <Table data={data} def={getDefWEdit(def, editLink)} />}
+    addLink={addLink}
+    getData={getData}
+  />
+);
 
 export default List;
