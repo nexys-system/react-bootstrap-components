@@ -1,6 +1,6 @@
 import React from "../../../_snowpack/pkg/react.js";
 import * as TT from "./type.js";
-const InputUnitGeneric = (InputText, InputNumber, InputSelectScalar, InputSelectObject) => ({type, onChange, value, options, errors}) => {
+const InputUnitGeneric = (InputText, InputNumber, InputSwitch, InputSelectScalar, InputSelectObject) => ({type, onChange, value, options, errors}) => {
   switch (type) {
     case TT.FormType.Select:
       if (!options) {
@@ -28,8 +28,14 @@ const InputUnitGeneric = (InputText, InputNumber, InputSelectScalar, InputSelect
         onChange,
         errors
       });
-    default:
+    case TT.FormType.Text:
       return /* @__PURE__ */ React.createElement(InputText, {
+        value,
+        onChange,
+        errors
+      });
+    case TT.FormType.Switch:
+      return /* @__PURE__ */ React.createElement(InputSwitch, {
         value,
         onChange,
         errors

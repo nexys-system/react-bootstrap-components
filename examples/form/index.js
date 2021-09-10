@@ -36,13 +36,20 @@ const formDef = [
       {id: 1, name: "cat #1"},
       {id: 2, name: "cat #2"}
     ]
+  },
+  {
+    name: "isAccept",
+    label: "Accept conditions",
+    uiType: FormType.Switch,
+    optional: false
   }
 ];
 export default () => {
   const [isLoading, setLoading] = React.useState(false);
   const [errors, setErrors] = React.useState();
   const {setNotification} = Ctx.useToastContext();
-  const handleSubmit = async () => {
+  const handleSubmit = async (v) => {
+    console.log(v);
     setLoading(true);
     setTimeout(() => {
       console.log("ds");

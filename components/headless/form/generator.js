@@ -14,8 +14,6 @@ const FormGenerator = (Wrapper, FormUnit, BtnSubmit) => ({
     setErrors(errorsDefault);
   }, [errorsDefault]);
   const validator = U.generateValidatorFromDef(formDef);
-  console.log(validator);
-  console.log(JSON.stringify(data));
   const handleSubmit = (event) => {
     event.preventDefault();
     const v = V.Main.checkObject(data, validator);
