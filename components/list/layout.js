@@ -5,7 +5,7 @@ const ListLayout = ({
   Table,
   getData,
   addLink
-}) => /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement(UtilsUi.LinkAdd, {
+}) => /* @__PURE__ */ React.createElement(React.Fragment, null, addLink && /* @__PURE__ */ React.createElement(UtilsUi.LinkAdd, {
   link: addLink
 }), /* @__PURE__ */ React.createElement(WLoader, {
   getData,
