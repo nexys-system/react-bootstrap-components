@@ -1,5 +1,5 @@
 import React from "../../../_snowpack/pkg/react.js";
-import {Main as ValidationMain} from "../../../_snowpack/pkg/@nexys/validation.js";
+import * as Validation from "../../../_snowpack/pkg/@nexys/validation.js";
 import * as U from "./utils.js";
 const FormGenerator = (Wrapper, FormUnit, BtnSubmit) => ({
   formDef,
@@ -16,7 +16,7 @@ const FormGenerator = (Wrapper, FormUnit, BtnSubmit) => ({
   const validator = U.generateValidatorFromDef(formDef);
   const handleSubmit = (event) => {
     event.preventDefault();
-    const v = ValidationMain.checkObject(data, validator);
+    const v = Validation.Main.checkObject(data, validator);
     setErrors(v);
     if (Object.values(v).length === 0) {
       onSuccess(data);
