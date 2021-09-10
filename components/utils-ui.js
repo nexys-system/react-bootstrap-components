@@ -18,3 +18,8 @@ export const LinkBack = ({link}) => /* @__PURE__ */ React.createElement(LinkBtn,
 }, /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement(Icon, {
   name: "arrow-left"
 }), " Back"));
+export const EditBtn = ({link}) => /* @__PURE__ */ React.createElement(Link, {
+  to: link
+}, /* @__PURE__ */ React.createElement(Icon, {
+  name: "arrow-right"
+}));

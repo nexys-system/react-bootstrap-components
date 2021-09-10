@@ -1,5 +1,5 @@
 import React from "../../_snowpack/pkg/react.js";
-import List from "../../components/list/index.js";
+import List from "../../components/table/index.js";
 const Default = () => /* @__PURE__ */ React.createElement(List, {
   data: [{name: "Doe", firstName: "John"}],
   def: [
