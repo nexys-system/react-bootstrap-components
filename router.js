@@ -7,6 +7,7 @@ import Buttons from "./examples/buttons.js";
 import Tabs from "./examples/tabs/index.js";
 import FormContext from "./examples/form-context/index.js";
 import List from "./examples/list/index.js";
+import FormSimple from "./examples/form-simple/index.js";
 const NotFound = () => /* @__PURE__ */ React.createElement("p", null, /* @__PURE__ */ React.createElement("i", null, "Page Not Found"));
 export default () => {
   return /* @__PURE__ */ React.createElement(Switch, null, /* @__PURE__ */ React.createElement(Route, {
@@ -17,6 +18,10 @@ export default () => {
     exact: true,
     path: Links.links.form.link,
     component: Form
+  }), /* @__PURE__ */ React.createElement(Route, {
+    exact: true,
+    path: Links.links.formSimple.link,
+    component: FormSimple
   }), /* @__PURE__ */ React.createElement(Route, {
     exact: true,
     path: Links.links.formContext.link,
