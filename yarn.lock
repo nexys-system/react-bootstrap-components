@@ -500,10 +500,10 @@
   resolved "https://registry.yarnpkg.com/@nexys/utils/-/utils-3.9.14.tgz#db7e3581dd3f15990334842111be35d5aba443ca"
   integrity sha512-ab+iVapztGguPbHaACoNXtn65iWh+hSqNOoKnIQkmldsQ4yUsRpPhs+Us+x2g5A3/ShwxREAz8DMLp0rpYcWig==
 
-"@nexys/validation@^2.1.1":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@nexys/validation/-/validation-2.1.1.tgz#231d973569f76872a3d108e66fa0ebad7c1829bc"
-  integrity sha512-7c+uqAJJ9khkEIfNVM4+dpE82Ql4iDvznrMGx5Qc/8qrE1LY98W4THKijW5nBpF30TKSn1ggRnGfvbNaaL3/Lw==
+"@nexys/validation@^2.1.2":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@nexys/validation/-/validation-2.1.2.tgz#1dda5a8e18760c44f66a86e90030d27fea82238d"
+  integrity sha512-p47+6HC2ZXwDNRHA43cN+HyDhfcAZ9QhoyXKp0b+EsmzEGkHDe1ZyWJzqUKwpXVU22c3l5ujD8+mCw0CHLVbTw==
   dependencies:
     "@nexys/utils" "^3.9.14"
 
