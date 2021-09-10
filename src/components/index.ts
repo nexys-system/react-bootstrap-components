@@ -5,6 +5,7 @@ export * as Type from "./type";
 export * as Headless from "./headless";
 export * as UtilsUi from "./utils-ui";
 
+import Add from "./add";
 import Card from "./card";
 import Detail from "./detail";
 import Delete from "./delete";
@@ -18,6 +19,7 @@ import ProgressBar from "./progress-bar";
 import WLoader from "./w-loader";
 
 export {
+  Add,
   Card,
   Detail,
   Delete,
