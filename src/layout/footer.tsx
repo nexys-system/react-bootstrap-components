@@ -1,24 +1,12 @@
 import React from "react";
-import { github, sha } from "../config";
+import { github, sha, version } from "../config";
 
 export default () => (
-  <footer>
-    <div className="container">
-      <p>
-        <small>
-          <a href={github.sha}>{sha.slice(0, 15)}</a>
-        </small>
-      </p>
-    </div>
+  <footer className="h-10 px-10">
+    <p>
+      <small>
+        <a href={github.sha}>{version}</a>
+      </small>
+    </p>
   </footer>
 );
-
-/*
-export default () => (
-  <div className="container">
-    <center>
-      <Sha />
-    </center>
-  </div>
-);
-*/
