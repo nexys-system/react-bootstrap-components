@@ -1,7 +1,7 @@
 import React from "../../_snowpack/pkg/react.js";
 import {useParams} from "../../_snowpack/pkg/react-router-dom.js";
+import {getParamTyped} from "../headless/detail/utils.js";
 import {LinkBack} from "../utils-ui.js";
-import {getParamTyped} from "./utils.js";
 const DetailLayout = ({
   title,
   backUrl,
