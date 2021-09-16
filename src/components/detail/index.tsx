@@ -1,11 +1,11 @@
 import React from "react";
 
-import { ViewField } from "../view";
+import { CrudRequestDetail, DetailLayoutProps } from "../headless/detail/type";
+import { FormProps } from "../headless/form/type";
+import { ViewField } from "../headless/view/type";
 
-import { CrudRequestDetail, DetailLayoutProps } from "./type";
 import Layout from "./layout";
 import Detail from "./main";
-import { FormProps } from "../headless/form/type";
 
 const DetailWLayout = <Id, A extends { id: Id }>(
   Form: (a: Omit<FormProps<A>, "formDef">) => JSX.Element,

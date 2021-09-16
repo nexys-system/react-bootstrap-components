@@ -1,5 +1,5 @@
 // move to headless
-import { FormOptionsMap } from "../headless/form/type";
+import { FormOptionsMap } from "../form/type";
 
 export interface EditProps<A, Id = number> {
   id: Id;

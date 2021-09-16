@@ -1,9 +1,10 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
+import * as T from "../headless/detail/type";
+import { getParamTyped } from "../headless/detail/utils";
+
 import { LinkBack } from "../utils-ui";
-import * as T from "./type";
-import { getParamTyped } from "./utils";
 
 const DetailLayout = <Id,>({
   title,

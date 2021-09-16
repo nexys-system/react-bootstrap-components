@@ -1,8 +1,5 @@
 import React from "react";
-
-export type ViewValue<A> = keyof A | ((d: A) => string);
-
-export type ViewField<A> = [string, ViewValue<A>];
+import { ViewField } from "./headless/view/type";
 
 const View =
   <A,>(fields: ViewField<A>[]) =>

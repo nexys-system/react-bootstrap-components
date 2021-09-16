@@ -1,13 +1,15 @@
 import React from "react";
 
+import { FormOptionsMap, FormProps } from "../headless/form/type";
+import { EditProps } from "../headless/toggle2";
+import { ViewField } from "../headless/view/type";
+import { CrudRequestDetail } from "../headless/detail/type";
+
 import ToggleGeneric from "../toggle";
-import ViewGeneric, { ViewField } from "../view";
+import ViewGeneric from "../view";
 import EditGeneric from "../edit";
 import DeleteGeneric from "../delete";
 import WLoader from "../w-loader";
-import { FormOptionsMap, FormProps } from "../headless/form/type";
-import { CrudRequestDetail } from "./type";
-import { EditProps } from "../headless/toggle2";
 
 const Detail = <Id, A extends { id: Id }>(
   Form: (a: Omit<FormProps<A>, "formDef">) => JSX.Element,
