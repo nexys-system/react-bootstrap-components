@@ -2,7 +2,7 @@ import React from "react";
 import { FormType, FormDef } from "../../components/headless/form/type";
 //import FormGeneric from "../../components/form/generic/generator-simple";
 import * as FormGeneric2 from "../../components/form/generic/generator";
-import AddGeneric from "../../components/add";
+import AddGeneric from "../../components/headless/add";
 interface Domain {
   serverName: string;
 }

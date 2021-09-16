@@ -1,3 +1,4 @@
+export const version = import.meta.env.SNOWPACK_PUBLIC_VERSOIN || "myversion";
 export const sha = import.meta.env.SNOWPACK_PUBLIC_GIT_SHA || "arandomsha";
 export const title =
   import.meta.env.SNOWPACK_PUBLIC_TITLE || "Bootstrap Components";
