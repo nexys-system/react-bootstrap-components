@@ -10,6 +10,6 @@ export interface ViewProps<A> {
   structure: T.StructureViewUnit<A>[];
 }
 
-export type ViewValue<A> = keyof A | ((d: A) => string);
+export type ViewValue<A> = keyof A | ((d: A) => string | JSX.Element);
 
 export type ViewField<A> = [string, ViewValue<A>];
