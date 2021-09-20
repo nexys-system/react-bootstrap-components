@@ -13,7 +13,7 @@ const FormGeneratorWithoutDef =
     isLoading = false,
     valueDefault = {},
     errors: errorsDefault,
-  }: Omit<FormProps<A>, "formDef"> & {}) => {
+  }: FormProps<A>) => {
     const [data, setData] = React.useState<Partial<A>>(valueDefault);
     const [errors, setErrors] = React.useState<
       Validation.Type.ErrorOut | Validation.Type.Error | undefined

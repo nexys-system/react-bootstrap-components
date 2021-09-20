@@ -6,7 +6,7 @@ import { FormProps } from "./form/type";
 const Add =
   <A, Id = number>(
     insert: (data: Omit<A, "id">) => Promise<{ id: Id }>,
-    Form: (props: Omit<FormProps<A>, "formDef">) => JSX.Element,
+    Form: (props: FormProps<A>) => JSX.Element,
     redirectUrl: string
   ) =>
   ({ data = {} }: { data?: Partial<A> }) => {

@@ -6,7 +6,7 @@ import { EditProps } from "../headless/edit/type";
 
 const Edit =
   <A, Id = number>(
-    Form: (a: Omit<FormProps<A>, "formDef">) => JSX.Element,
+    Form: (a: FormProps<A>) => JSX.Element,
     update: (data: Partial<A>, id: Id) => Promise<void>,
     redirectUrl: string
   ) =>

@@ -5,9 +5,7 @@ import { ViewProps } from "./view/type";
 
 const ToggleGeneric =
   <A,>(
-    GenericForm: (
-      formDef: any
-    ) => (props: Omit<T.FormProps<A>, "formDef">) => JSX.Element,
+    GenericForm: (formDef: any) => (props: T.FormProps<A>) => JSX.Element,
     formDef: T.FormDef<A>[],
     View: (props: ViewProps<A>) => JSX.Element,
     BtnBack: (props: { onClick: () => void }) => JSX.Element,

@@ -3,7 +3,7 @@ import { FormContentProps, FormProps } from "../../../headless/form/type";
 
 const Form =
   <A,>(FormUI: (props: FormContentProps<A>) => JSX.Element) =>
-  ({ valueDefault = {}, onSuccess }: Omit<FormProps<A>, "formDef">) => {
+  ({ valueDefault = {}, onSuccess }: FormProps<A>) => {
     const [data, setData] = React.useState<any>(valueDefault);
     const [loading, setLoading] = React.useState<boolean>(false);
 

@@ -12,7 +12,7 @@ import DeleteGeneric from "../delete";
 import WLoader from "../w-loader";
 
 const Detail = <Id, A extends { id: Id }>(
-  Form: (a: Omit<FormProps<A>, "formDef">) => JSX.Element,
+  Form: (a: FormProps<A>) => JSX.Element,
   viewFields: ViewField<A>[],
   { update, detail, deleteById, getOptions }: CrudRequestDetail<A, Id>,
   redirectUrl: string,
@@ -61,7 +61,7 @@ const Detail = <Id, A extends { id: Id }>(
 const getMain = <A, Id>(
   showToggle: boolean,
   viewFields: ViewField<A>[],
-  Form: (a: Omit<FormProps<A>, "formDef">) => JSX.Element,
+  Form: (a: FormProps<A>) => JSX.Element,
   redirectUrl: string,
   update?: (data: Partial<A>, id: Id) => Promise<void>
 ): ((a: EditProps<A, Id>) => JSX.Element) => {

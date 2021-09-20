@@ -8,7 +8,7 @@ import Layout from "./layout";
 import Detail from "./main";
 
 const DetailWLayout = <Id, A extends { id: Id }>(
-  Form: (a: Omit<FormProps<A>, "formDef">) => JSX.Element,
+  Form: (a: FormProps<A>) => JSX.Element,
   viewFields: ViewField<A>[],
   { update, detail, deleteById, getOptions }: CrudRequestDetail<A, Id>,
   redirectUrl: string,

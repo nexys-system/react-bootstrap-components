@@ -70,7 +70,6 @@ export interface StructureUnit<A> extends StructureViewUnit<A> {
 }
 
 export interface FormProps<A> {
-  formDef: FormDef<A>[];
   onSuccess: (v: A) => Promise<void>;
   valueDefault?: Partial<A>;
   errors?: V.Type.ErrorOut | V.Type.Error;
