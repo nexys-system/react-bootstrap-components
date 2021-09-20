@@ -3,3 +3,5 @@ import WrapperGeneric from "./generic-wrapper";
 import UIGeneric from "./ui";
 
 export default <T,>(defs: FormDef<T>[]) => WrapperGeneric(UIGeneric(defs));
+
+// this should be removed in favor or ../generator
