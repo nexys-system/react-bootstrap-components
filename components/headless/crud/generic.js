@@ -1,7 +1,7 @@
 import React from "../../../_snowpack/pkg/react.js";
 import {Route, Switch} from "../../../_snowpack/pkg/react-router-dom.js";
 import AddGeneric from "../add.js";
-const AddRoute = (Form, urlPrefix, addLink, crudInsert) => {
+export const AddRoute = (Form, urlPrefix, addLink, crudInsert) => {
   if (!crudInsert) {
     return /* @__PURE__ */ React.createElement(React.Fragment, null);
   }
@@ -12,11 +12,11 @@ const AddRoute = (Form, urlPrefix, addLink, crudInsert) => {
     component: Add
   });
 };
-const CrudGeneric = (ListGeneric, DetailGeneric, FormWDef) => (def, defDetail, viewFields, urlPrefix, crud, editTitle = "Edit", extras, showEditToggle = true) => {
+export const CrudGeneric = (ListGeneric, DetailGeneric, FormWDef) => (def, defDetail, viewFields, urlPrefix, crud, editTitle = "Edit", extras, showEditToggle = true) => {
   const Form = FormWDef(defDetail);
   return CrudGenericWForm(ListGeneric, DetailGeneric, Form)(def, viewFields, urlPrefix, crud, editTitle, extras, showEditToggle);
 };
-const CrudGenericWForm = (ListGeneric, DetailGeneric, Form) => (def, viewFields, urlPrefix, crud, editTitle = "Edit", extras, showEditToggle = true) => {
+export const CrudGenericWForm = (ListGeneric, DetailGeneric, Form) => (def, viewFields, urlPrefix, crud, editTitle = "Edit", extras, showEditToggle = true) => {
   const addLink = urlPrefix + "/add";
   const editLink = (childId) => urlPrefix + "/" + childId + "/edit";
   const redirectUrl = urlPrefix;
