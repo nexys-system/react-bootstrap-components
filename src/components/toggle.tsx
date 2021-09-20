@@ -1,6 +1,7 @@
 import React from "react";
 
-import ToggleGeneric, { ToggleLayoutProps } from "./headless/toggle2";
+import ToggleGeneric from "./headless/toggle/toggle";
+import { ToggleLayoutProps } from "./headless/toggle/type";
 
 const ToggleLayout = ({ isEdit, setEdit, children }: ToggleLayoutProps) => {
   return (

@@ -1,7 +1,7 @@
 import React from "react";
 
 import { FormOptionsMap, FormProps } from "../headless/form/type";
-import { EditProps } from "../headless/toggle2";
+import { EditProps } from "../headless/edit/type";
 import { ViewField } from "../headless/view/type";
 import { CrudRequestDetail } from "../headless/detail/type";
 

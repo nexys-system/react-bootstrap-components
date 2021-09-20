@@ -1,12 +1,6 @@
 import React from "react";
-import { FormOptionsMap } from "./form/type";
-
-export interface EditProps<A, Id = number> {
-  id: Id;
-  data: A;
-  submitLabel?: string;
-  formOptions?: FormOptionsMap<A>;
-}
+import { EditProps } from "../edit/type";
+import { ToggleLayoutProps } from "./type";
 
 export const ToggleHeadless =
   (ToggleLayout: (props: ToggleLayoutProps) => JSX.Element) =>
@@ -27,11 +21,5 @@ export const ToggleHeadless =
       </ToggleLayout>
     );
   };
-
-export interface ToggleLayoutProps {
-  isEdit: boolean;
-  setEdit: (edit: boolean) => void;
-  children: JSX.Element | JSX.Element[];
-}
 
 export default ToggleHeadless;

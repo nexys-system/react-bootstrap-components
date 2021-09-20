@@ -1,9 +1,9 @@
 import React from "react";
-import * as T from "./form/type";
+import * as T from "../form/type";
 
-import { ViewProps } from "./view/type";
+import { ViewProps } from "../view/type";
 
-const ToggleGeneric =
+const ToggleFormGeneric =
   <A,>(
     GenericForm: (formDef: any) => (props: T.FormProps<A>) => JSX.Element,
     formDef: T.FormDef<A>[],
@@ -38,4 +38,4 @@ const ToggleGeneric =
     );
   };
 
-export default ToggleGeneric;
+export default ToggleFormGeneric;

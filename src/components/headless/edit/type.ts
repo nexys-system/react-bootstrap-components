@@ -1,4 +1,3 @@
-// move to headless
 import { FormOptionsMap } from "../form/type";
 
 export interface EditProps<A, Id = number> {
