@@ -1,5 +1,5 @@
 import {FormType} from "../../components/headless/form/type.js";
-import * as FormGeneric2 from "../../components/form/generic/generator/index.js";
+import * as FormGeneric2 from "../../components/form/generic/generator.js";
 import AddGeneric from "../../components/headless/add.js";
 const defs = [
   {

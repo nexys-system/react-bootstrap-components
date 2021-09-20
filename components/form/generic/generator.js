@@ -1,7 +1,7 @@
-import React from "../../../../_snowpack/pkg/react.js";
-import FormGenerator from "../../../headless/form/generator.js";
-import {Wrapper} from "../../index.js";
-import FormUnit from "../input.js";
+import React from "../../../_snowpack/pkg/react.js";
+import FormGenerator from "../../headless/form/generator.js";
+import {Wrapper} from "../index.js";
+import FormUnit from "./input.js";
 const BtnSubmit = ({isLoading}) => /* @__PURE__ */ React.createElement("button", {
   disabled: isLoading,
   type: "submit",
@@ -13,4 +13,5 @@ const BtnSubmit = ({isLoading}) => /* @__PURE__ */ React.createElement("button",
 }), /* @__PURE__ */ React.createElement("span", {
   className: "sr-only"
 }, "...Loading")), !isLoading && /* @__PURE__ */ React.createElement(React.Fragment, null, "Submit"));
-export const FormWDef = (formDef) => FormGenerator(Wrapper, FormUnit, BtnSubmit, formDef);
+const FormWDef = (formDef) => FormGenerator(Wrapper, FormUnit, BtnSubmit, formDef);
+export default FormWDef;

@@ -1,4 +1,4 @@
-import React from "../../_snowpack/pkg/react.js";
+import React from "../../../_snowpack/pkg/react.js";
 export const ToggleHeadless = (ToggleLayout) => (Edit, View) => ({id, data, formOptions}) => {
   const [isEdit, setEdit] = React.useState(false);
   return /* @__PURE__ */ React.createElement(ToggleLayout, {

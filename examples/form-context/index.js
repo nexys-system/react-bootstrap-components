@@ -1,7 +1,5 @@
 import React from "../../_snowpack/pkg/react.js";
-import * as GenericForm from "../../components/form/generic/generator/index.js";
-import View from "../../components/form/generic/view/index.js";
-import Toggle from "../../components/form/generic/toggle/index.js";
+import GenericForm from "../../components/form/generic/generator.js";
 import {SwapComponent} from "../../components/tabs/index.js";
 import {FormType} from "../../components/headless/form/type.js";
 const structure = [
@@ -33,25 +31,14 @@ export default () => {
   const handleSubmit = (d) => {
     return Promise.resolve();
   };
-  const PToggle = Toggle(structure);
-  const toggle = /* @__PURE__ */ React.createElement(PToggle, {
-    onSuccess: handleSubmit,
-    data: sampleData
-  });
-  const view = /* @__PURE__ */ React.createElement(View, {
-    data: sampleData,
-    structure
-  });
-  const PForm = GenericForm.FormWDef(structure);
+  const PForm = GenericForm(structure);
   const form = /* @__PURE__ */ React.createElement(PForm, {
     valueDefault: sampleData,
     onSuccess: handleSubmit
   });
   return /* @__PURE__ */ React.createElement(SwapComponent, {
     navs: [
-      {name: "Form", Component: form},
-      {name: "View", Component: view},
-      {name: "Toggle", Component: toggle}
+      {name: "Form", Component: form}
     ]
   });
 };

@@ -1,5 +1,5 @@
 import React from "../../_snowpack/pkg/react.js";
-import * as GForm from "../../components/form/generic/generator/index.js";
+import * as GForm from "../../components/form/generic/generator.js";
 import * as Ctx from "../../components/notifications/context.js";
 import {NotificationType} from "../../components/notifications/type.js";
 import {FormType} from "../../components/headless/form/type.js";

@@ -1,5 +1,5 @@
 import React from "../_snowpack/pkg/react.js";
-import ToggleGeneric from "./headless/toggle2.js";
+import ToggleGeneric from "./headless/toggle/toggle.js";
 const ToggleLayout = ({isEdit, setEdit, children}) => {
   return /* @__PURE__ */ React.createElement(React.Fragment, null, children, /* @__PURE__ */ React.createElement("button", {
     onClick: () => setEdit(!isEdit),
