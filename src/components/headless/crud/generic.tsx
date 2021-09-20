@@ -103,17 +103,7 @@ export const CrudGenericWForm =
     );
 
     const Detail = () => (
-      <PreDetail
-        backUrl={backUrl}
-        title={editTitle}
-        extras={
-          extras
-            ? extras.map(({ Component }) => ({ id }: { id: Id }) => (
-                <Component data={id} />
-              ))
-            : undefined
-        }
-      />
+      <PreDetail backUrl={backUrl} title={editTitle} extras={extras} />
     );
 
     return () => (

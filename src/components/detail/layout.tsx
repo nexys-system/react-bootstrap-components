@@ -29,8 +29,8 @@ const DetailLayout = <Id,>({
 
         {extras &&
           extras.map((ExtraUnit, i) => (
-            <div key={i} className="col-md-6">
-              <ExtraUnit id={nid} />
+            <div key={i} className={`col-md-${ExtraUnit.colSpan || 6}`}>
+              <ExtraUnit.Component data={nid} />
             </div>
           ))}
       </div>
