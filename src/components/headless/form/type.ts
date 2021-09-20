@@ -1,5 +1,9 @@
 import * as V from "@nexys/validation";
 
+export type FormOptions<Id> = OptionSet<Id>[];
+
+export type FormOptionsMap<A> = Map<keyof A, FormOptions<number | string>>;
+
 export interface InputProps<A> {
   onChange: (v: A | undefined) => void;
   value?: A;
@@ -46,23 +50,20 @@ export enum FormType {
   Switch,
 }
 
-export interface StructureViewUnit<A, Id = number> {
+export interface StructureUnitCore<A, Id> {
   name: keyof A;
   label?: string;
   options?: FormOptions<Id>;
+}
+
+export interface StructureViewUnit<A, Id = number>
+  extends StructureUnitCore<A, Id> {
   render?: (a: A) => string;
 }
 
-export type FormOptions<Id> = OptionSet<Id>[];
-
-export type FormOptionsMap<A> = Map<keyof A, FormOptions<number | string>>;
-
-export interface FormDef<A, Id = number> {
-  name: keyof A;
-  label?: string;
+export interface FormDef<A, Id = number> extends StructureUnitCore<A, Id> {
   uiType: FormType;
   optional: boolean;
-  options?: FormOptions<Id>;
 }
 
 export interface StructureUnit<A> extends StructureViewUnit<A> {
