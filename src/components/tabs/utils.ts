@@ -1,4 +1,4 @@
-import * as T from "./type";
+import * as T from "../headless/tabs/type";
 
 export const toHref = (l: T.Link, urlPrefix: string) => {
   const path: string =

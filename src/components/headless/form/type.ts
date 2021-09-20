@@ -93,3 +93,10 @@ export interface FormContentProps<A> {
   onChange: (d: string, name: keyof A) => void;
   options?: FormOptionsMap<A>;
 }
+
+export interface FormUIProps<A> {
+  data: Partial<A>;
+  errors?: V.Type.ErrorOut | V.Type.Error;
+  onChange: (name: string, value: any) => void;
+  disabled: boolean;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route, Link, useLocation } from "react-router-dom";
-import * as T from "./type";
+import * as T from "../headless/tabs/type";
 import * as U from "./utils";
 
 const Nav = ({ navs }: { navs: T.LinkAndComponentAndPath[] }) => (

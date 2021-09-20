@@ -1,77 +1,20 @@
-import React from "react";
+import FormGeneratorWithoutDef from "./generator-wo-def";
 
-import * as Validation from "@nexys/validation";
 import * as U from "./utils";
 import { FormProps, InputUnitProps, WrapperProps } from "./type";
 
-const FormGenerator =
+import FormGenericUI from "./ui";
+
+export const FormGenerator =
   <A,>(
     Wrapper: (props: WrapperProps) => JSX.Element,
     FormUnit: (props: InputUnitProps<A>) => JSX.Element,
     BtnSubmit: (prop: { isLoading: boolean }) => JSX.Element
   ) =>
-  ({
-    formDef,
-    onSuccess,
-    isLoading = false,
-    valueDefault = {},
-    errors: errorsDefault,
-  }: FormProps<A>) => {
-    const [data, setData] = React.useState<Partial<A>>(valueDefault);
-    const [errors, setErrors] = React.useState<
-      Validation.Type.ErrorOut | Validation.Type.Error | undefined
-    >(errorsDefault);
-
-    React.useEffect(() => {
-      setErrors(errorsDefault);
-    }, [errorsDefault]);
-
+  ({ formDef, ...props }: FormProps<A>) => {
+    const FormUI = FormGenericUI(formDef, Wrapper, BtnSubmit, FormUnit);
     const validator = U.generateValidatorFromDef(formDef);
-    // console.log(validator);
-    // console.log(JSON.stringify(data));
-
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
-      event.preventDefault();
-
-      const v = Validation.Main.checkObject(data, validator);
-      // console.log(v);
-      setErrors(v);
-
-      // no errors found
-      if (Object.values(v).length === 0) {
-        //
-        //alert(JSON.stringify(v));
-
-        onSuccess(data as A);
-      }
-    };
-
-    //console.log({ errors });
-
-    return (
-      <form onSubmit={handleSubmit}>
-        {formDef.map((fd, i) => {
-          const name = fd.name;
-          const errorUnit: string[] | undefined =
-            errors && (errors as any)[name as any];
-          //console.log(name, errorUnit);
-          return (
-            <Wrapper errors={errorUnit} key={i} label={fd.label}>
-              <FormUnit
-                type={fd.uiType}
-                errors={errorUnit}
-                value={data[fd.name] as any}
-                onChange={(v) => setData({ ...data, [fd.name]: v })}
-                options={fd.options}
-                disabled={isLoading}
-              />
-            </Wrapper>
-          );
-        })}
-
-        <BtnSubmit isLoading={isLoading} />
-      </form>
-    );
+    return FormGeneratorWithoutDef(FormUI)({ validator, ...props });
   };
 
 export default FormGenerator;

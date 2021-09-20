@@ -10,7 +10,7 @@ const ToggleLayout = ({ isEdit, setEdit, children }: ToggleLayoutProps) => {
         onClick={() => setEdit(!isEdit)}
         className={"btn btn-sm btn-secondary"}
       >
-        {isEdit ? "back to View" : "Edit"}
+        {isEdit ? "Back to View" : "Edit"}
       </button>
     </>
   );
