@@ -1,8 +1,7 @@
 import React from "react";
 
-import * as GenericForm from "../../components/form/generic/generator";
-import View from "../../components/form/generic/view";
-import Toggle from "../../components/form/generic/toggle";
+import GenericForm from "../../components/form/generic/generator";
+
 import { SwapComponent } from "../../components/tabs";
 import { FormDef, FormType } from "../../components/headless/form/type";
 
@@ -45,19 +44,19 @@ export default () => {
     return Promise.resolve();
   };
 
-  const PToggle = Toggle(structure);
+  //const PToggle = Toggle(structure);
 
-  const toggle = <PToggle onSuccess={handleSubmit} data={sampleData} />;
-  const view = <View data={sampleData} structure={structure} />;
-  const PForm = GenericForm.FormWDef(structure);
+  //const toggle = <PToggle onSuccess={handleSubmit} data={sampleData} />;
+  //const view = <View data={sampleData} structure={structure} />;
+  const PForm = GenericForm(structure);
   const form = <PForm valueDefault={sampleData} onSuccess={handleSubmit} />;
 
   return (
     <SwapComponent
       navs={[
         { name: "Form", Component: form },
-        { name: "View", Component: view },
-        { name: "Toggle", Component: toggle },
+        //{ name: "View", Component: view },
+        // { name: "Toggle", Component: toggle },
       ]}
     />
   );
