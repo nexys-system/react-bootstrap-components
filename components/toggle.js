@@ -4,7 +4,7 @@ const ToggleLayout = ({isEdit, setEdit, children}) => {
   return /* @__PURE__ */ React.createElement(React.Fragment, null, children, /* @__PURE__ */ React.createElement("button", {
     onClick: () => setEdit(!isEdit),
     className: "btn btn-sm btn-secondary"
-  }, isEdit ? "back to View" : "Edit"));
+  }, isEdit ? "Back to View" : "Edit"));
 };
 const Toggle = ToggleGeneric(ToggleLayout);
 export default Toggle;
