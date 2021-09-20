@@ -1,5 +1,5 @@
 import {FormType} from "../../components/headless/form/type.js";
-import * as FormGeneric2 from "../../components/form/generic/generator.js";
+import FormGeneric2 from "../../components/form/generic/generator.js";
 import AddGeneric from "../../components/headless/add.js";
 const defs = [
   {
@@ -9,7 +9,7 @@ const defs = [
     optional: false
   }
 ];
-const Form = FormGeneric2.FormWDef(defs);
+const Form = FormGeneric2(defs);
 const insert = (a) => {
   console.log(a);
   alert(JSON.stringify(a) + " will now be redirected to home page");

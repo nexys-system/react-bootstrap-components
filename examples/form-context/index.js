@@ -2,6 +2,7 @@ import React from "../../_snowpack/pkg/react.js";
 import GenericForm from "../../components/form/generic/generator.js";
 import {SwapComponent} from "../../components/tabs/index.js";
 import {FormType} from "../../components/headless/form/type.js";
+import Toggle from "../../components/toggle.js";
 const structure = [
   {
     name: "name",
@@ -31,6 +32,11 @@ export default () => {
   const handleSubmit = (d) => {
     return Promise.resolve();
   };
+  const PToggle = Toggle(() => /* @__PURE__ */ React.createElement(React.Fragment, null, "edit"), () => /* @__PURE__ */ React.createElement(React.Fragment, null, "view"));
+  const toggle = /* @__PURE__ */ React.createElement(PToggle, {
+    id: 2,
+    data: sampleData
+  });
   const PForm = GenericForm(structure);
   const form = /* @__PURE__ */ React.createElement(PForm, {
     valueDefault: sampleData,
@@ -38,7 +44,8 @@ export default () => {
   });
   return /* @__PURE__ */ React.createElement(SwapComponent, {
     navs: [
-      {name: "Form", Component: form}
+      {name: "Form", Component: form},
+      {name: "Toggle", Component: toggle}
     ]
   });
 };
