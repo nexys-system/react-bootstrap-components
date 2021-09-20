@@ -20,9 +20,9 @@ const DetailLayout = ({
     id: nid
   })), extras && extras.map((ExtraUnit, i) => /* @__PURE__ */ React.createElement("div", {
     key: i,
-    className: "col-md-6"
-  }, /* @__PURE__ */ React.createElement(ExtraUnit, {
-    id: nid
+    className: `col-md-${ExtraUnit.colSpan || 6}`
+  }, /* @__PURE__ */ React.createElement(ExtraUnit.Component, {
+    data: nid
   })))), backUrl && /* @__PURE__ */ React.createElement("div", {
     className: "row"
   }, /* @__PURE__ */ React.createElement("div", {

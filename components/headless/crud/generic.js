@@ -31,9 +31,7 @@ export const CrudGenericWForm = (ListGeneric, DetailGeneric, Form) => (def, view
   const Detail = () => /* @__PURE__ */ React.createElement(PreDetail, {
     backUrl,
     title: editTitle,
-    extras: extras ? extras.map(({Component}) => ({id}) => /* @__PURE__ */ React.createElement(Component, {
-      data: id
-    })) : void 0
+    extras
   });
   return () => /* @__PURE__ */ React.createElement(Switch, null, AddRoute(Form, urlPrefix, addLink, crud.insert), /* @__PURE__ */ React.createElement(Route, {
     path: editLink(":id"),
