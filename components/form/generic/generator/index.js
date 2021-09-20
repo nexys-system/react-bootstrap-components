@@ -13,11 +13,4 @@ const BtnSubmit = ({isLoading}) => /* @__PURE__ */ React.createElement("button",
 }), /* @__PURE__ */ React.createElement("span", {
   className: "sr-only"
 }, "...Loading")), !isLoading && /* @__PURE__ */ React.createElement(React.Fragment, null, "Submit"));
-export const FormWDef = (formDef) => {
-  const F = FormGenerator(Wrapper, FormUnit, BtnSubmit);
-  return (p) => /* @__PURE__ */ React.createElement(F, {
-    formDef,
-    ...p
-  });
-};
-export default (p) => FormGenerator(Wrapper, FormUnit, BtnSubmit)(p);
+export const FormWDef = (formDef) => FormGenerator(Wrapper, FormUnit, BtnSubmit, formDef);

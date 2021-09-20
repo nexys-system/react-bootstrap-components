@@ -1,7 +1,6 @@
 import React from "../../../_snowpack/pkg/react.js";
 import * as Validation from "../../../_snowpack/pkg/@nexys/validation.js";
-const FormGeneratorWithoutDef = (FormUI) => ({
-  validator,
+const FormGeneratorWithoutDef = (FormUI, validator) => ({
   onSuccess,
   isLoading = false,
   valueDefault = {},
