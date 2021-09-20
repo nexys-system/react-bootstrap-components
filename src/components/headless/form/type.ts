@@ -78,7 +78,7 @@ export interface FormProps<A> {
   options?: FormOptionsMap<A>;
 }
 
-export type ToggleProps<A> = Omit<FormProps<A>, "valueDefault"> & {
+export type ToggleProps<A> = Omit<FormProps<A>, "valueDefault" | "formDef"> & {
   data: A;
 };
 

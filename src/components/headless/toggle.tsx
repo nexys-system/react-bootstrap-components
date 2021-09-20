@@ -5,12 +5,15 @@ import { ViewProps } from "./view/type";
 
 const ToggleGeneric =
   <A,>(
-    GenericForm: (props: T.FormProps<A>) => JSX.Element,
+    GenericForm: (
+      formDef: any
+    ) => (props: Omit<T.FormProps<A>, "formDef">) => JSX.Element,
+    formDef: T.FormDef<A>[],
     View: (props: ViewProps<A>) => JSX.Element,
     BtnBack: (props: { onClick: () => void }) => JSX.Element,
     BtnEdit: (props: { onClick: () => void }) => JSX.Element
   ) =>
-  ({ data, formDef, onSuccess }: T.ToggleProps<A>) => {
+  ({ data, onSuccess }: T.ToggleProps<A>) => {
     const [isEdit, setEdit] = React.useState(false);
 
     const handleSubmit = async (data: Partial<A>) =>
@@ -18,14 +21,12 @@ const ToggleGeneric =
         setEdit(false);
       });
 
+    const Form = GenericForm(formDef);
+
     if (isEdit) {
       return (
         <>
-          <GenericForm
-            formDef={formDef}
-            valueDefault={data}
-            onSuccess={handleSubmit}
-          />
+          <Form valueDefault={data} onSuccess={handleSubmit} />
           <BtnBack onClick={() => setEdit(false)} />
         </>
       );

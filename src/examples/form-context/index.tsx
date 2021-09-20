@@ -1,14 +1,10 @@
 import React from "react";
 
-import GenericForm from "../../components/form/generic/generator";
+import * as GenericForm from "../../components/form/generic/generator";
 import View from "../../components/form/generic/view";
 import Toggle from "../../components/form/generic/toggle";
 import { SwapComponent } from "../../components/tabs";
-import {
-  FormDef,
-  FormType,
-  StructureUnit,
-} from "../../components/headless/form/type";
+import { FormDef, FormType } from "../../components/headless/form/type";
 
 interface Form {
   name: string;
@@ -49,17 +45,12 @@ export default () => {
     return Promise.resolve();
   };
 
-  const toggle = (
-    <Toggle onSuccess={handleSubmit} data={sampleData} formDef={structure} />
-  );
+  const PToggle = Toggle(structure);
+
+  const toggle = <PToggle onSuccess={handleSubmit} data={sampleData} />;
   const view = <View data={sampleData} structure={structure} />;
-  const form = (
-    <GenericForm<Form>
-      formDef={structure}
-      valueDefault={sampleData}
-      onSuccess={handleSubmit}
-    />
-  );
+  const PForm = GenericForm.FormWDef(structure);
+  const form = <PForm valueDefault={sampleData} onSuccess={handleSubmit} />;
 
   return (
     <SwapComponent

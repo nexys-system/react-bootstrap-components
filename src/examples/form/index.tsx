@@ -1,6 +1,6 @@
 import React from "react";
 
-import Form from "../../components/form/generic/generator";
+import * as GForm from "../../components/form/generic/generator";
 
 import * as V from "@nexys/validation";
 import * as Ctx from "../../components/notifications/context";
@@ -57,6 +57,7 @@ const formDef: FormDef<Data>[] = [
   },
 ];
 
+const Form = GForm.FormWDef(formDef);
 export default () => {
   const [isLoading, setLoading] = React.useState(false);
   const [errors, setErrors] = React.useState<V.Type.ErrorOut | V.Type.Error>();
@@ -80,12 +81,7 @@ export default () => {
   return (
     <>
       <h1>Form</h1>
-      <Form
-        formDef={formDef}
-        isLoading={isLoading}
-        onSuccess={handleSubmit}
-        errors={errors}
-      />
+      <Form isLoading={isLoading} onSuccess={handleSubmit} errors={errors} />
     </>
   );
 };

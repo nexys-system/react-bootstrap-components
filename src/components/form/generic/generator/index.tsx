@@ -22,11 +22,5 @@ const BtnSubmit = ({ isLoading }: { isLoading: boolean }) => (
   </button>
 );
 
-export const FormWDef = <A,>(formDef: FormDef<A>[]) => {
-  const F = FormGenerator<A>(Wrapper, FormUnit, BtnSubmit);
-
-  return (p: Omit<FormProps<A>, "formDef">) => <F formDef={formDef} {...p} />;
-};
-
-export default <A,>(p: FormProps<A>) =>
-  FormGenerator<A>(Wrapper, FormUnit, BtnSubmit)(p);
+export const FormWDef = <A,>(formDef: FormDef<A>[]) =>
+  FormGenerator<A>(Wrapper, FormUnit, BtnSubmit, formDef);

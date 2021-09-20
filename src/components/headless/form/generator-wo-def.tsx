@@ -4,16 +4,16 @@ import * as Validation from "@nexys/validation";
 import { FormProps, FormUIProps } from "./type";
 
 const FormGeneratorWithoutDef =
-  <A,>(FormUI: (p: FormUIProps<A>) => JSX.Element) =>
+  <A,>(
+    FormUI: (p: FormUIProps<A>) => JSX.Element,
+    validator?: Validation.Type.Shape
+  ) =>
   ({
-    validator,
     onSuccess,
     isLoading = false,
     valueDefault = {},
     errors: errorsDefault,
-  }: Omit<FormProps<A>, "formDef"> & {
-    validator?: Validation.Type.Shape;
-  }) => {
+  }: Omit<FormProps<A>, "formDef"> & {}) => {
     const [data, setData] = React.useState<Partial<A>>(valueDefault);
     const [errors, setErrors] = React.useState<
       Validation.Type.ErrorOut | Validation.Type.Error | undefined
