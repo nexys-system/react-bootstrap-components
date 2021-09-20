@@ -20,7 +20,7 @@ type DetailGenericType<A, Id> = (
   showToggle: boolean
 ) => (p: Omit<DetailLayoutProps<Id>, "Detail">) => JSX.Element;
 
-const AddRoute = <A, Id>(
+export const AddRoute = <A, Id>(
   Form: (p: FormProps<A>) => JSX.Element,
   urlPrefix: string,
   addLink: string,
@@ -33,7 +33,7 @@ const AddRoute = <A, Id>(
   return <Route exact path={addLink} component={Add} />;
 };
 
-const CrudGeneric =
+export const CrudGeneric =
   <A extends { id: Id }, Id>(
     ListGeneric: (a: ListProps<A>) => JSX.Element,
     DetailGeneric: DetailGenericType<A, Id>,
@@ -64,7 +64,7 @@ const CrudGeneric =
     );
   };
 
-const CrudGenericWForm =
+export const CrudGenericWForm =
   <A extends { id: Id }, Id>(
     ListGeneric: (a: ListProps<A>) => JSX.Element,
     DetailGeneric: DetailGenericType<A, Id>,
