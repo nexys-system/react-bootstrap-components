@@ -26,15 +26,21 @@ const FormGeneratorWithoutDef =
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
       event.preventDefault();
 
-      const v = Validation.Main.checkObject(data, validator);
-      // console.log(v);
-      setErrors(v);
+      // if validator is defined, do client side check
+      // else simply invoke onSuccess
+      if (validator) {
+        const v = Validation.Main.checkObject(data, validator);
+        // console.log(v);
+        setErrors(v);
 
-      // no errors found
-      if (Object.values(v).length === 0) {
-        //
-        //alert(JSON.stringify(v));
+        // no errors found
+        if (Object.values(v).length === 0) {
+          //
+          //alert(JSON.stringify(v));
 
+          onSuccess(data as A);
+        }
+      } else {
         onSuccess(data as A);
       }
     };

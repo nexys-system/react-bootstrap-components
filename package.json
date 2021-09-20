@@ -1,10 +1,6 @@
 {
   "name": "@nexys/react-bootstrap",
-<<<<<<< HEAD
-  "version": "0.2.27",
-=======
   "version": "0.2.26",
->>>>>>> fffe1647b95380d6b48e0388c38ef884acb39fe3
   "main": "dist/index.js",
   "files": [
     "README.md",
