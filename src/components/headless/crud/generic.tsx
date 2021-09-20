@@ -12,6 +12,14 @@ import { ListProps } from "../list/type";
 
 import { CrudInsert, CrudRequest, ExtraUnit } from "./type";
 
+type DetailGenericType<A, Id> = (
+  Form: (a: FormProps<A>) => JSX.Element,
+  viewFields: ViewField<A>[],
+  { update, detail, deleteById, getOptions }: CrudRequestDetail<A, Id>,
+  redirectUrl: string,
+  showToggle: boolean
+) => (p: Omit<DetailLayoutProps<Id>, "Detail">) => JSX.Element;
+
 const AddRoute = <A, Id>(
   Form: (p: FormProps<A>) => JSX.Element,
   urlPrefix: string,
@@ -28,13 +36,7 @@ const AddRoute = <A, Id>(
 const CrudGeneric =
   <A extends { id: Id }, Id>(
     ListGeneric: (a: ListProps<A>) => JSX.Element,
-    DetailGeneric: (
-      Form: (a: FormProps<A>) => JSX.Element,
-      viewFields: ViewField<A>[],
-      { update, detail, deleteById, getOptions }: CrudRequestDetail<A, Id>,
-      redirectUrl: string,
-      showToggle: boolean
-    ) => (p: Omit<DetailLayoutProps<Id>, "Detail">) => JSX.Element,
+    DetailGeneric: DetailGenericType<A, Id>,
     FormWDef: <A>(
       formDef: FormDef<A, number>[]
     ) => (p: FormProps<A>) => JSX.Element
@@ -65,13 +67,7 @@ const CrudGeneric =
 const CrudGenericWForm =
   <A extends { id: Id }, Id>(
     ListGeneric: (a: ListProps<A>) => JSX.Element,
-    DetailGeneric: (
-      Form: (a: FormProps<A>) => JSX.Element,
-      viewFields: ViewField<A>[],
-      { update, detail, deleteById, getOptions }: CrudRequestDetail<A, Id>,
-      redirectUrl: string,
-      showToggle: boolean
-    ) => (p: Omit<DetailLayoutProps<Id>, "Detail">) => JSX.Element,
+    DetailGeneric: DetailGenericType<A, Id>,
     Form: (p: FormProps<A>) => JSX.Element
   ) =>
   (
