@@ -6,7 +6,7 @@ import { Types } from "@nexys/core-list";
 import AddGeneric from "../add";
 import { FormDef, FormProps } from "../form/type";
 import { ViewField } from "../view/type";
-import { CrudRequestDetail, DetailLayoutProps } from "../detail/type";
+import { CrudRequestDetail, DetailLayoutProps, ColWidth } from "../detail/type";
 
 import { ListProps } from "../list/type";
 
@@ -49,7 +49,8 @@ export const CrudGeneric =
     crud: CrudRequest<A, Id>,
     editTitle: string = "Edit",
     extras?: ExtraUnit<Id>[],
-    showEditToggle: boolean = true
+    showEditToggle: boolean = true,
+    detailColWidth: ColWidth = 6
   ) => {
     const Form = FormWDef<A>(defDetail);
 
@@ -60,7 +61,8 @@ export const CrudGeneric =
       crud,
       editTitle,
       extras,
-      showEditToggle
+      showEditToggle,
+      detailColWidth
     );
   };
 
@@ -77,7 +79,8 @@ export const CrudGenericWForm =
     crud: CrudRequest<A, Id>,
     editTitle: string = "Edit",
     extras?: ExtraUnit<Id>[],
-    showEditToggle: boolean = true
+    showEditToggle: boolean = true,
+    detailColWidth: ColWidth = 6
   ) => {
     const addLink = urlPrefix + "/add";
     const editLink = (childId: number | ":id") =>
@@ -103,7 +106,12 @@ export const CrudGenericWForm =
     );
 
     const Detail = () => (
-      <PreDetail backUrl={backUrl} title={editTitle} extras={extras} />
+      <PreDetail
+        backUrl={backUrl}
+        title={editTitle}
+        extras={extras}
+        detailColWidth={detailColWidth}
+      />
     );
 
     return () => (
