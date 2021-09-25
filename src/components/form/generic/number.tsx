@@ -2,10 +2,16 @@ import React from "react";
 import * as T from "../../headless/form/type";
 import { acceptDecimalValue } from "./utils";
 
+/**
+ *
+ * @param UI
+ * @param acceptNumericValue // by default accept decimal values, this function here can be replaced with amything
+ * @returns
+ */
 export const InputNumberGeneric =
   (
     UI: (props: T.InputProps<string>) => JSX.Element,
-    acceptNumericValue: (v: string) => boolean = acceptDecimalValue // by default accept decimal values, this function here can be replaced with amything
+    acceptNumericValue: (v: string) => boolean = acceptDecimalValue
   ) =>
   (p: T.InputProps<number>) => {
     const [value, setValue] = React.useState<string>(
