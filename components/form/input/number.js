@@ -8,7 +8,7 @@ export const InputNumber = ({
   className: "form-control" + (errors && errors.length > 0 ? "  is-invalid" : ""),
   disabled,
   type: "number",
-  value: value || "",
+  value: isNaN(Number(value)) ? "" : value,
   onChange: (v) => v.target.value === "" ? onChange(void 0) : onChange(Number(v.target.value))
 });
 export default InputNumber;
