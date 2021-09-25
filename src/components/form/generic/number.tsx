@@ -18,7 +18,12 @@ export const InputNumberGeneric =
       p.value ? p.value.toString() : ""
     );
 
-    const handleChange = (s: string) => {
+    const handleChange = (s: string | undefined) => {
+      if (s === undefined || s === "") {
+        p.onChange(undefined);
+        return;
+      }
+
       const v = Number(s);
 
       if (acceptNumericValue(s)) {
@@ -27,10 +32,6 @@ export const InputNumberGeneric =
 
       if (!isNaN(v)) {
         p.onChange(v);
-      }
-
-      if (s === "") {
-        p.onChange(undefined);
       }
     };
 
