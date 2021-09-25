@@ -13,7 +13,7 @@ export const InputNumber = ({
     }
     disabled={disabled}
     type="number"
-    value={value || ""}
+    value={isNaN(Number(value)) ? "" : value}
     onChange={(v) =>
       v.target.value === ""
         ? onChange(undefined)
