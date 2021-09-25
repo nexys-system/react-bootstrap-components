@@ -7,7 +7,8 @@ export const InputNumber = ({
   errors,
   disabled,
   placeholder,
-}: T.InputProps<number>) => (
+  step,
+}: T.InputProps<number> & { step?: number }) => (
   <input
     className={
       "form-control" + (errors && errors.length > 0 ? "  is-invalid" : "")
@@ -16,6 +17,7 @@ export const InputNumber = ({
     placeholder={placeholder}
     type="number"
     value={isNaN(Number(value)) ? "" : value}
+    step={step}
     onChange={(v) =>
       v.target.value === ""
         ? onChange(undefined)
