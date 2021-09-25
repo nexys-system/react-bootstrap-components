@@ -6,12 +6,14 @@ export const InputNumber = ({
   onChange,
   errors,
   disabled,
+  placeholder,
 }: T.InputProps<number>) => (
   <input
     className={
       "form-control" + (errors && errors.length > 0 ? "  is-invalid" : "")
     }
     disabled={disabled}
+    placeholder={placeholder}
     type="number"
     value={isNaN(Number(value)) ? "" : value}
     onChange={(v) =>

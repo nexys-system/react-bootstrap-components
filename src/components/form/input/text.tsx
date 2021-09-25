@@ -5,6 +5,7 @@ export const InputText = ({
   value,
   onChange,
   errors,
+  placeholder,
   disabled,
 }: T.InputProps<string>) => (
   <input
@@ -12,6 +13,7 @@ export const InputText = ({
       "form-control" + (errors && errors.length > 0 ? "  is-invalid" : "")
     }
     disabled={disabled}
+    placeholder={placeholder}
     type="text"
     value={value || ""}
     onChange={(v) =>
