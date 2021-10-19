@@ -15,7 +15,7 @@ const ToggleFormGeneric =
     const [isEdit, setEdit] = React.useState(false);
 
     const handleSubmit = async (data: Partial<A>) =>
-      onSuccess(data as A).then((x) => {
+      onSuccess(data as A).then(() => {
         setEdit(false);
       });
 

@@ -9,19 +9,26 @@ import ToggleGeneric from "../toggle";
 import ViewGeneric from "../view";
 import EditGeneric from "../edit";
 import DeleteGeneric from "../delete";
-import WLoader from "../w-loader";
+import { ExtraUnit } from "../headless/crud/type";
 
-const Detail = <Id, A extends { id: Id }>(
+interface DataWOptions<A> {
+  data: A;
+  options: FormOptionsMap<A>;
+}
+
+const DetailWExtras = <Id, A extends { id: Id }>(
+  title: string,
   Form: (a: FormProps<A>) => JSX.Element,
   viewFields: ViewField<A>[],
   { update, detail, deleteById, getOptions }: CrudRequestDetail<A, Id>,
   redirectUrl: string,
-  showToggle: boolean = true
+  showToggle: boolean = true,
+  detailColWidth: number = 6,
+  extras?: ExtraUnit<A>[]
 ) => {
+  const [data, setData] = React.useState<DataWOptions<A> | "null">("null");
   // merge different promises to have all in the same functions
-  const detailWOptions = async (
-    id: Id
-  ): Promise<{ data: A; options: FormOptionsMap<A> }> => {
+  const detailWOptions = async (id: Id): Promise<DataWOptions<A>> => {
     const data = await detail(id);
     const options: FormOptionsMap<A> = getOptions
       ? await getOptions()
@@ -39,24 +46,41 @@ const Detail = <Id, A extends { id: Id }>(
 
   getOptions && getOptions();
 
-  const EditLoader = ({ id }: { id: Id }) =>
-    WLoader<{ data: A; options?: FormOptionsMap<A> }>({
-      Component: ({
-        data,
-      }: {
-        data: { data: A; options?: FormOptionsMap<A> };
-      }) => <Main id={id} data={data.data} formOptions={data.options} />,
-      getData: () => detailWOptions(id),
-    });
+  return ({ id }: { id: Id }) => {
+    if (!isData(data)) {
+      detailWOptions(id).then((data) => setData(data));
+    }
 
-  return ({ id }: { id: Id }) => (
-    <>
-      <EditLoader id={id} />
-      &nbsp;
-      <Delete id={id} />
-    </>
-  );
+    return (
+      <div className="row">
+        <div className={"col-md-" + detailColWidth}>
+          <h2>{title}</h2>
+          {isData(data) ? (
+            <Main id={id} data={data.data} formOptions={data.options} />
+          ) : (
+            <>loading</>
+          )}
+          &nbsp;
+          <Delete id={id} />
+        </div>
+
+        {extras &&
+          extras.map((ExtraUnit, i) =>
+            isData(data) ? (
+              <div key={i} className={`col-md-${ExtraUnit.colSpan || 6}`}>
+                <ExtraUnit.Component data={data.data} />
+              </div>
+            ) : (
+              <>loading</>
+            )
+          )}
+      </div>
+    );
+  };
 };
+
+const isData = <A,>(d: DataWOptions<A> | "null"): d is DataWOptions<A> =>
+  d !== "null";
 
 const getMain = <A, Id>(
   showToggle: boolean,
@@ -79,4 +103,4 @@ const getMain = <A, Id>(
   return Edit;
 };
 
-export default Detail;
+export default DetailWExtras;

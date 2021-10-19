@@ -1,4 +1,5 @@
 import React from "react";
+import { ExtraUnit } from "../headless/crud/type";
 
 import { CrudRequestDetail, DetailLayoutProps } from "../headless/detail/type";
 import { FormProps } from "../headless/form/type";
@@ -8,35 +9,28 @@ import Layout from "./layout";
 import Detail from "./main";
 
 const DetailWLayout = <Id, A extends { id: Id }>(
+  title: string,
   Form: (a: FormProps<A>) => JSX.Element,
   viewFields: ViewField<A>[],
   { update, detail, deleteById, getOptions }: CrudRequestDetail<A, Id>,
   redirectUrl: string,
-  showToggle: boolean = true
+  showToggle: boolean = true,
+  detailColWidth: number = 6,
+  extras?: ExtraUnit<A>[]
 ) => {
-  return ({
-    title,
-    backUrl,
-    detailColWidth,
-    extras,
-  }: Omit<DetailLayoutProps<Id>, "Detail">) => {
+  return ({ backUrl }: Omit<DetailLayoutProps<Id>, "Detail">) => {
     const D = Detail(
+      title,
       Form,
       viewFields,
       { update, detail, deleteById, getOptions },
       redirectUrl,
-      showToggle
+      showToggle,
+      detailColWidth,
+      extras
     );
 
-    return (
-      <Layout
-        title={title}
-        backUrl={backUrl}
-        Detail={D}
-        detailColWidth={detailColWidth}
-        extras={extras}
-      />
-    );
+    return <Layout backUrl={backUrl} Detail={D} />;
   };
 };
 

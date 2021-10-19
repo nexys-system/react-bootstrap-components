@@ -7,11 +7,8 @@ import { getParamTyped } from "../headless/detail/utils";
 import { LinkBack } from "../utils-ui";
 
 const DetailLayout = <Id,>({
-  title,
   backUrl,
   Detail,
-  detailColWidth = 6,
-  extras,
   paramType = "number",
 }: T.DetailLayoutProps<Id> & { paramType?: T.ParamType }) => {
   const { id } = useParams<{ id?: string }>();
@@ -20,7 +17,8 @@ const DetailLayout = <Id,>({
 
   return (
     <div>
-      <div className="row">
+      <Detail id={nid} />
+      {/* <div className="row">
         <div className={"col-md-" + detailColWidth}>
           <h2>{title}</h2>
 
@@ -30,10 +28,10 @@ const DetailLayout = <Id,>({
         {extras &&
           extras.map((ExtraUnit, i) => (
             <div key={i} className={`col-md-${ExtraUnit.colSpan || 6}`}>
-              <ExtraUnit.Component data={nid} />
+              <ExtraUnit.Component data={nid as any as A} />
             </div>
           ))}
-      </div>
+      </div>*/}
 
       {backUrl && (
         <div className="row">

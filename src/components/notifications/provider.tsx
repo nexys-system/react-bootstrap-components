@@ -1,8 +1,11 @@
-import React from 'react';
-import Ctx from './context';
-import Toast from './toast';
-import Banner from './banner';
-import { Notification, NotificationType } from './type';
+import React from "react";
+import Ctx from "./context";
+import Toast from "./toast";
+import Banner from "./banner";
+import {
+  Notification,
+  //NotificationType
+} from "./type";
 
 export const Provider = ({ children }: { children: any }) => {
   const [notifications, setNotifications] = React.useState<Notification[]>([]);
@@ -14,11 +17,11 @@ export const Provider = ({ children }: { children: any }) => {
 
   const addToast = (t: Notification) => setNotifications([...notifications, t]);
 
-  const banners: Banner[] = notifications
-    .filter(x => x.type === NotificationType.banner)
-    .map(x => {
+  /*const _banners: Banner[] = notifications
+    .filter((x) => x.type === NotificationType.banner)
+    .map((x) => {
       return { text: x.text };
-    });
+    });*/
 
   return (
     <Ctx.Provider

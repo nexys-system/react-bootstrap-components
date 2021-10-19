@@ -1,5 +1,5 @@
-import React from 'react';
-import { Notification } from './type';
+import React from "react";
+import { Notification } from "./type";
 
 type State = {
   notifications: Notification[];
@@ -9,8 +9,8 @@ type State = {
 
 const initialState: State = {
   notifications: [],
-  setNotification: (t: Notification) => undefined,
-  rmNotification: (idx: number) => undefined
+  setNotification: (_t: Notification) => undefined,
+  rmNotification: (_idx: number) => undefined,
 };
 
 const CustomContext = React.createContext<State>(initialState);

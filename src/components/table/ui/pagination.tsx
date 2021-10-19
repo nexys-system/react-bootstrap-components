@@ -5,9 +5,7 @@ import { PaginationProps } from "@nexys/core-list/dist/list/ui-type";
 
 const { getPagination } = CoreList.PaginationUtils;
 
-const Pagination = (props: PaginationProps): JSX.Element | null => {
-  const { n, nPerPage, idx, onClick } = props;
-
+const Pagination = ({ n, nPerPage }: PaginationProps): JSX.Element | null => {
   if (n === 0) {
     return null;
   }
@@ -34,7 +32,7 @@ const Pagination = (props: PaginationProps): JSX.Element | null => {
         </li>
         <li className="page-item">
           <a className="page-link" href="#">
-            3
+            {nPage}
           </a>
         </li>
         <li className="page-item">

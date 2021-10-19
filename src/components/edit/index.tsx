@@ -14,7 +14,7 @@ const Edit =
     const history = useHistory();
 
     const handleSubmit = (data: Partial<Omit<A, "id">>) =>
-      update(data as any, id).then((x) => {
+      update(data as any, id).then(() => {
         history.push(redirectUrl);
       });
 

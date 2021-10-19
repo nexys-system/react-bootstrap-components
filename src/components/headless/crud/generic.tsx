@@ -6,11 +6,11 @@ import { Types } from "@nexys/core-list";
 import AddGeneric from "../add";
 import { FormDef, FormProps } from "../form/type";
 import { ViewField } from "../view/type";
-import { CrudRequestDetail, DetailLayoutProps, ColWidth } from "../detail/type";
+import { CrudRequestDetail, DetailLayoutProps } from "../detail/type";
 
 import { ListProps } from "../list/type";
 
-import { CrudInsert, CrudRequest, ExtraUnit } from "./type";
+import { CrudInsert, CrudRequest } from "./type";
 
 type DetailGenericType<A, Id> = (
   Form: (a: FormProps<A>) => JSX.Element,
@@ -46,11 +46,7 @@ export const CrudGeneric =
     defDetail: FormDef<A>[],
     viewFields: ViewField<A>[],
     urlPrefix: string,
-    crud: CrudRequest<A, Id>,
-    editTitle: string = "Edit",
-    extras?: ExtraUnit<Id>[],
-    showEditToggle: boolean = true,
-    detailColWidth: ColWidth = 6
+    crud: CrudRequest<A, Id>
   ) => {
     const Form = FormWDef<A>(defDetail);
 
@@ -58,11 +54,7 @@ export const CrudGeneric =
       def,
       viewFields,
       urlPrefix,
-      crud,
-      editTitle,
-      extras,
-      showEditToggle,
-      detailColWidth
+      crud
     );
   };
 
@@ -77,10 +69,7 @@ export const CrudGenericWForm =
     viewFields: ViewField<A>[],
     urlPrefix: string,
     crud: CrudRequest<A, Id>,
-    editTitle: string = "Edit",
-    extras?: ExtraUnit<Id>[],
-    showEditToggle: boolean = true,
-    detailColWidth: ColWidth = 6
+    showEditToggle: boolean = true
   ) => {
     const addLink = urlPrefix + "/add";
     const editLink = (childId: number | ":id") =>
@@ -105,14 +94,7 @@ export const CrudGenericWForm =
       showEditToggle
     );
 
-    const Detail = () => (
-      <PreDetail
-        backUrl={backUrl}
-        title={editTitle}
-        extras={extras}
-        detailColWidth={detailColWidth}
-      />
-    );
+    const Detail = () => <PreDetail backUrl={backUrl} />;
 
     return () => (
       <Switch>
