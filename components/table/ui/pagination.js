@@ -1,8 +1,7 @@
 import React from "../../../_snowpack/pkg/react.js";
 import * as CoreList from "../../../_snowpack/pkg/@nexys/core-list.js";
 const {getPagination} = CoreList.PaginationUtils;
-const Pagination = (props) => {
-  const {n, nPerPage, idx, onClick} = props;
+const Pagination = ({n, nPerPage}) => {
   if (n === 0) {
     return null;
   }
@@ -31,7 +30,7 @@ const Pagination = (props) => {
   }, /* @__PURE__ */ React.createElement("a", {
     className: "page-link",
     href: "#"
-  }, "3")), /* @__PURE__ */ React.createElement("li", {
+  }, nPage)), /* @__PURE__ */ React.createElement("li", {
     className: "page-item"
   }, /* @__PURE__ */ React.createElement("a", {
     className: "page-link",

@@ -98,8 +98,7 @@ export const ListWrapper = ({children}) => /* @__PURE__ */ React.createElement("
 }, children);
 export const ListContainer = ({
   children,
-  maxHeight,
-  stickyHeader = false
+  maxHeight
 }) => /* @__PURE__ */ React.createElement("div", {
   className: "container",
   style: maxHeight ? {maxHeight} : void 0

@@ -3,27 +3,15 @@ import {useParams} from "../../_snowpack/pkg/react-router-dom.js";
 import {getParamTyped} from "../headless/detail/utils.js";
 import {LinkBack} from "../utils-ui.js";
 const DetailLayout = ({
-  title,
   backUrl,
   Detail,
-  detailColWidth = 6,
-  extras,
   paramType = "number"
 }) => {
   const {id} = useParams();
   const nid = getParamTyped(paramType, id);
-  return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", {
-    className: "row"
-  }, /* @__PURE__ */ React.createElement("div", {
-    className: "col-md-" + detailColWidth
-  }, /* @__PURE__ */ React.createElement("h2", null, title), /* @__PURE__ */ React.createElement(Detail, {
+  return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement(Detail, {
     id: nid
-  })), extras && extras.map((ExtraUnit, i) => /* @__PURE__ */ React.createElement("div", {
-    key: i,
-    className: `col-md-${ExtraUnit.colSpan || 6}`
-  }, /* @__PURE__ */ React.createElement(ExtraUnit.Component, {
-    data: nid
-  })))), backUrl && /* @__PURE__ */ React.createElement("div", {
+  }), backUrl && /* @__PURE__ */ React.createElement("div", {
     className: "row"
   }, /* @__PURE__ */ React.createElement("div", {
     className: "col-md-12"

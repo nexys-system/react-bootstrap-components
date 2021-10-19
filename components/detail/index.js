@@ -1,20 +1,12 @@
 import React from "../../_snowpack/pkg/react.js";
 import Layout from "./layout.js";
 import Detail from "./main.js";
-const DetailWLayout = (Form, viewFields, {update, detail, deleteById, getOptions}, redirectUrl, showToggle = true) => {
-  return ({
-    title,
-    backUrl,
-    detailColWidth,
-    extras
-  }) => {
-    const D = Detail(Form, viewFields, {update, detail, deleteById, getOptions}, redirectUrl, showToggle);
+const DetailWLayout = (title, Form, viewFields, {update, detail, deleteById, getOptions}, redirectUrl, showToggle = true, detailColWidth = 6, extras) => {
+  return ({backUrl}) => {
+    const D = Detail(title, Form, viewFields, {update, detail, deleteById, getOptions}, redirectUrl, showToggle, detailColWidth, extras);
     return /* @__PURE__ */ React.createElement(Layout, {
-      title,
       backUrl,
-      Detail: D,
-      detailColWidth,
-      extras
+      Detail: D
     });
   };
 };

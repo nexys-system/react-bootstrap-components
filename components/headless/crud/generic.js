@@ -12,11 +12,11 @@ export const AddRoute = (Form, urlPrefix, addLink, crudInsert) => {
     component: Add
   });
 };
-export const CrudGeneric = (ListGeneric, DetailGeneric, FormWDef) => (def, defDetail, viewFields, urlPrefix, crud, editTitle = "Edit", extras, showEditToggle = true, detailColWidth = 6) => {
+export const CrudGeneric = (ListGeneric, DetailGeneric, FormWDef) => (def, defDetail, viewFields, urlPrefix, crud) => {
   const Form = FormWDef(defDetail);
-  return CrudGenericWForm(ListGeneric, DetailGeneric, Form)(def, viewFields, urlPrefix, crud, editTitle, extras, showEditToggle, detailColWidth);
+  return CrudGenericWForm(ListGeneric, DetailGeneric, Form)(def, viewFields, urlPrefix, crud);
 };
-export const CrudGenericWForm = (ListGeneric, DetailGeneric, Form) => (def, viewFields, urlPrefix, crud, editTitle = "Edit", extras, showEditToggle = true, detailColWidth = 6) => {
+export const CrudGenericWForm = (ListGeneric, DetailGeneric, Form) => (def, viewFields, urlPrefix, crud, showEditToggle = true) => {
   const addLink = urlPrefix + "/add";
   const editLink = (childId) => urlPrefix + "/" + childId + "/edit";
   const redirectUrl = urlPrefix;
@@ -29,10 +29,7 @@ export const CrudGenericWForm = (ListGeneric, DetailGeneric, Form) => (def, view
   });
   const PreDetail = DetailGeneric(Form, viewFields, {update: crud.update, deleteById: crud.deleteById, detail: crud.detail}, redirectUrl, showEditToggle);
   const Detail = () => /* @__PURE__ */ React.createElement(PreDetail, {
-    backUrl,
-    title: editTitle,
-    extras,
-    detailColWidth
+    backUrl
   });
   return () => /* @__PURE__ */ React.createElement(Switch, null, AddRoute(Form, urlPrefix, addLink, crud.insert), /* @__PURE__ */ React.createElement(Route, {
     path: editLink(":id"),

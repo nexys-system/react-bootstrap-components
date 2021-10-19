@@ -1,7 +1,7 @@
 import React from "../../../_snowpack/pkg/react.js";
 const ToggleFormGeneric = (GenericForm, formDef, View, BtnBack, BtnEdit) => ({data, onSuccess}) => {
   const [isEdit, setEdit] = React.useState(false);
-  const handleSubmit = async (data2) => onSuccess(data2).then((x) => {
+  const handleSubmit = async (data2) => onSuccess(data2).then(() => {
     setEdit(false);
   });
   const Form = GenericForm(formDef);

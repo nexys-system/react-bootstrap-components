@@ -24,7 +24,6 @@ export const BtnAction = ({
   onClick,
   action
 }) => {
-  const className = "btn btn-secondary btn-sm";
   const content = /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement(Icon, {
     name: actionToIcon(action)
   }), " ", actionToText(action));
