@@ -31,8 +31,6 @@ export const BtnAction = ({
 }: {
   action: T.Action;
 } & T.BtnCoreProps) => {
-  const className = "btn btn-secondary btn-sm";
-
   const content = (
     <>
       <Icon name={actionToIcon(action)} /> {actionToText(action)}
