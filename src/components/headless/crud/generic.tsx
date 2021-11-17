@@ -48,7 +48,10 @@ export const CrudGeneric =
     defDetail: FormDef<A>[],
     viewFields: ViewField<A>[],
     urlPrefix: string,
-    crud: CrudRequest<A, Id>
+    crud: CrudRequest<A, Id>,
+    showEditToggle: boolean = true,
+    detailColWidth: number = 6,
+    extras?: ExtraUnit<A>[]
   ) => {
     const Form = FormWDef<A>(defDetail);
 
@@ -56,7 +59,10 @@ export const CrudGeneric =
       def,
       viewFields,
       urlPrefix,
-      crud
+      crud,
+      showEditToggle,
+      detailColWidth,
+      extras
     );
   };
 
