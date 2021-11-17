@@ -16,7 +16,7 @@ export const CrudGeneric = (ListGeneric, DetailGeneric, FormWDef) => (def, defDe
   const Form = FormWDef(defDetail);
   return CrudGenericWForm(ListGeneric, DetailGeneric, Form)(def, viewFields, urlPrefix, crud);
 };
-export const CrudGenericWForm = (ListGeneric, DetailGeneric, Form) => (def, viewFields, urlPrefix, crud, showEditToggle = true) => {
+export const CrudGenericWForm = (ListGeneric, DetailGeneric, Form) => (def, viewFields, urlPrefix, crud, showEditToggle = true, detailColWidth = 6, extras) => {
   const addLink = urlPrefix + "/add";
   const editLink = (childId) => urlPrefix + "/" + childId + "/edit";
   const redirectUrl = urlPrefix;
@@ -27,7 +27,7 @@ export const CrudGenericWForm = (ListGeneric, DetailGeneric, Form) => (def, view
     getData: crud.list,
     def
   });
-  const PreDetail = DetailGeneric(Form, viewFields, {update: crud.update, deleteById: crud.deleteById, detail: crud.detail}, redirectUrl, showEditToggle);
+  const PreDetail = DetailGeneric(Form, viewFields, {update: crud.update, deleteById: crud.deleteById, detail: crud.detail}, redirectUrl, showEditToggle, detailColWidth, extras);
   const Detail = () => /* @__PURE__ */ React.createElement(PreDetail, {
     backUrl
   });
