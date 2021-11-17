@@ -10,14 +10,16 @@ import { CrudRequestDetail, DetailLayoutProps } from "../detail/type";
 
 import { ListProps } from "../list/type";
 
-import { CrudInsert, CrudRequest } from "./type";
+import { CrudInsert, CrudRequest, ExtraUnit } from "./type";
 
 type DetailGenericType<A, Id> = (
   Form: (a: FormProps<A>) => JSX.Element,
   viewFields: ViewField<A>[],
   { update, detail, deleteById, getOptions }: CrudRequestDetail<A, Id>,
   redirectUrl: string,
-  showToggle: boolean
+  showToggle: boolean,
+  detailColWidth: number,
+  extras?: ExtraUnit<A>[]
 ) => (p: Omit<DetailLayoutProps<Id>, "Detail">) => JSX.Element;
 
 export const AddRoute = <A, Id>(
@@ -69,7 +71,9 @@ export const CrudGenericWForm =
     viewFields: ViewField<A>[],
     urlPrefix: string,
     crud: CrudRequest<A, Id>,
-    showEditToggle: boolean = true
+    showEditToggle: boolean = true,
+    detailColWidth: number = 6,
+    extras?: ExtraUnit<A>[]
   ) => {
     const addLink = urlPrefix + "/add";
     const editLink = (childId: Id | ":id") =>
@@ -91,7 +95,9 @@ export const CrudGenericWForm =
       viewFields,
       { update: crud.update, deleteById: crud.deleteById, detail: crud.detail },
       redirectUrl,
-      showEditToggle
+      showEditToggle,
+      detailColWidth,
+      extras
     );
 
     const Detail = () => <PreDetail backUrl={backUrl} />;
