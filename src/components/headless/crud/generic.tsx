@@ -35,7 +35,7 @@ export const AddRoute = <A, Id>(
 
 export const CrudGeneric =
   <A extends { id: Id }, Id>(
-    ListGeneric: (a: ListProps<A>) => JSX.Element,
+    ListGeneric: (a: ListProps<A, Id>) => JSX.Element,
     DetailGeneric: DetailGenericType<A, Id>,
     FormWDef: <A>(
       formDef: FormDef<A, number>[]
@@ -60,7 +60,7 @@ export const CrudGeneric =
 
 export const CrudGenericWForm =
   <A extends { id: Id }, Id>(
-    ListGeneric: (a: ListProps<A>) => JSX.Element,
+    ListGeneric: (a: ListProps<A, Id>) => JSX.Element,
     DetailGeneric: DetailGenericType<A, Id>,
     Form: (p: FormProps<A>) => JSX.Element
   ) =>
@@ -72,7 +72,7 @@ export const CrudGenericWForm =
     showEditToggle: boolean = true
   ) => {
     const addLink = urlPrefix + "/add";
-    const editLink = (childId: number | ":id") =>
+    const editLink = (childId: Id | ":id") =>
       urlPrefix + "/" + childId + "/edit";
     const redirectUrl = urlPrefix;
     const backUrl = urlPrefix;
