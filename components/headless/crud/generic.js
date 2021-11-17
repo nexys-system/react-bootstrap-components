@@ -12,9 +12,9 @@ export const AddRoute = (Form, urlPrefix, addLink, crudInsert) => {
     component: Add
   });
 };
-export const CrudGeneric = (ListGeneric, DetailGeneric, FormWDef) => (def, defDetail, viewFields, urlPrefix, crud) => {
+export const CrudGeneric = (ListGeneric, DetailGeneric, FormWDef) => (def, defDetail, viewFields, urlPrefix, crud, showEditToggle = true, detailColWidth = 6, extras) => {
   const Form = FormWDef(defDetail);
-  return CrudGenericWForm(ListGeneric, DetailGeneric, Form)(def, viewFields, urlPrefix, crud);
+  return CrudGenericWForm(ListGeneric, DetailGeneric, Form)(def, viewFields, urlPrefix, crud, showEditToggle, detailColWidth, extras);
 };
 export const CrudGenericWForm = (ListGeneric, DetailGeneric, Form) => (def, viewFields, urlPrefix, crud, showEditToggle = true, detailColWidth = 6, extras) => {
   const addLink = urlPrefix + "/add";
