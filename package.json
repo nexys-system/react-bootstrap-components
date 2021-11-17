@@ -1,6 +1,6 @@
 {
   "name": "@nexys/react-bootstrap",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "main": "dist/index.js",
   "files": [
     "README.md",
