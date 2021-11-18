@@ -19,7 +19,8 @@ type DetailGenericType<A, Id> = (
   redirectUrl: string,
   showToggle: boolean,
   detailColWidth: number,
-  extras?: ExtraUnit<A>[]
+  extras?: ExtraUnit<A>[],
+  editTitle?: string
 ) => (p: Omit<DetailLayoutProps<Id>, "Detail">) => JSX.Element;
 
 export const AddRoute = <A, Id>(
@@ -51,7 +52,8 @@ export const CrudGeneric =
     crud: CrudRequest<A, Id>,
     showEditToggle: boolean = true,
     detailColWidth: number = 6,
-    extras?: ExtraUnit<A>[]
+    extras?: ExtraUnit<A>[],
+    editTitle?: string
   ) => {
     const Form = FormWDef<A>(defDetail);
 
@@ -62,7 +64,8 @@ export const CrudGeneric =
       crud,
       showEditToggle,
       detailColWidth,
-      extras
+      extras,
+      editTitle
     );
   };
 
@@ -79,7 +82,8 @@ export const CrudGenericWForm =
     crud: CrudRequest<A, Id>,
     showEditToggle: boolean = true,
     detailColWidth: number = 6,
-    extras?: ExtraUnit<A>[]
+    extras?: ExtraUnit<A>[],
+    editTitle?: string
   ) => {
     const addLink = urlPrefix + "/add";
     const editLink = (childId: Id | ":id") =>
@@ -103,7 +107,8 @@ export const CrudGenericWForm =
       redirectUrl,
       showEditToggle,
       detailColWidth,
-      extras
+      extras,
+      editTitle
     );
 
     const Detail = () => <PreDetail backUrl={backUrl} />;
