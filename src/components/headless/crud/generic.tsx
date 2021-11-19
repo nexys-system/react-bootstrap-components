@@ -36,6 +36,7 @@ export const AddRoute = <A, Id>(
   return <Route exact path={addLink} component={Add} />;
 };
 
+// this one will generate the form based on the definition
 export const CrudGeneric =
   <A extends { id: Id }, Id>(
     ListGeneric: (a: ListProps<A, Id>) => JSX.Element,
@@ -69,6 +70,7 @@ export const CrudGeneric =
     );
   };
 
+// same as above but the form needs to be given, `Form`
 export const CrudGenericWForm =
   <A extends { id: Id }, Id>(
     ListGeneric: (a: ListProps<A, Id>) => JSX.Element,
