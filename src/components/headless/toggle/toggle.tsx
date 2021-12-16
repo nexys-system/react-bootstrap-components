@@ -14,7 +14,12 @@ export const ToggleHeadless =
     return (
       <ToggleLayout isEdit={isEdit} setEdit={setEdit}>
         {isEdit ? (
-          <Edit id={id} data={data} formOptions={formOptions} />
+          <Edit
+            id={id}
+            data={data}
+            formOptions={formOptions}
+            postUpdate={() => setEdit(false)}
+          />
         ) : (
           <View data={data} />
         )}
