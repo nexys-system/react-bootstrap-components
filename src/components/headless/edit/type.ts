@@ -5,4 +5,5 @@ export interface EditProps<A, Id = number> {
   data: A;
   submitLabel?: string;
   formOptions?: FormOptionsMap<A>;
+  postUpdate?: () => void;
 }
