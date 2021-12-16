@@ -7,7 +7,8 @@ export const ToggleHeadless = (ToggleLayout) => (Edit, View) => ({id, data, form
   }, isEdit ? /* @__PURE__ */ React.createElement(Edit, {
     id,
     data,
-    formOptions
+    formOptions,
+    postUpdate: () => setEdit(false)
   }) : /* @__PURE__ */ React.createElement(View, {
     data
   }));
