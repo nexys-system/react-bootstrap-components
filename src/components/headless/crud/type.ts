@@ -1,5 +1,8 @@
 import * as T from "../detail/type";
 
+import { FormProps } from "../form/type";
+import { ViewField } from "../view/type";
+
 export type Uuid = string;
 
 export type CrudInsert<A, Id> = (a: Omit<A, "id">) => Promise<{ id: Id }>;
@@ -16,3 +19,20 @@ export interface ExtraUnit<A> {
   title?: string;
   colSpan?: number;
 }
+
+export interface CrudOptions {
+  showEditToggle: boolean;
+  detailColWidth: number;
+  editTitle?: string;
+}
+
+export type DetailGenericType<A, Id> = (
+  Form: (a: FormProps<A>) => JSX.Element,
+  viewFields: ViewField<A>[],
+  { update, detail, deleteById, getOptions }: T.CrudRequestDetail<A, Id>,
+  redirectUrl: string,
+  showToggle: boolean,
+  detailColWidth: number,
+  extras?: ExtraUnit<A>[],
+  editTitle?: string
+) => (p: Omit<T.DetailLayoutProps<Id>, "Detail">) => JSX.Element;
