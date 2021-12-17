@@ -1,6 +1,7 @@
+import { DefinitionItem } from "@nexys/core-list/dist/types";
 import * as T from "../detail/type";
 
-import { FormProps } from "../form/type";
+import { FormDef, FormProps } from "../form/type";
 import { ViewField } from "../view/type";
 
 export type Uuid = string;
@@ -36,3 +37,7 @@ export type DetailGenericType<A, Id> = (
   extras?: ExtraUnit<A>[],
   editTitle?: string
 ) => (p: Omit<T.DetailLayoutProps<Id>, "Detail">) => JSX.Element;
+
+// this is the unit input for the crud simple
+export type CrudSimpleDef<A> = FormDef<A> &
+  Pick<DefinitionItem<A>, "render" | "filter" | "sort">;
