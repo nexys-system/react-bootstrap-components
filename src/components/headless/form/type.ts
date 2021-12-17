@@ -64,6 +64,7 @@ export interface StructureViewUnit<A, Id = number>
 export interface FormDef<A, Id = number> extends StructureUnitCore<A, Id> {
   uiType: FormType;
   optional: boolean;
+  disabled?: boolean;
 }
 
 export interface StructureUnit<A> extends StructureViewUnit<A> {
