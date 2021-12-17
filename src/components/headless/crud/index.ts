@@ -12,13 +12,11 @@ export const CrudGeneric =
   <A extends { id: Id }, Id>(
     ListGeneric: (a: ListProps<A, Id>) => JSX.Element,
     DetailGeneric: T.DetailGenericType<A, Id>,
-    FormWDef: <A>(
-      formDef: FormDef<A, number>[]
-    ) => (p: FormProps<A>) => JSX.Element
+    FormWDef: <A>(formDef: FormDef<A, Id>[]) => (p: FormProps<A>) => JSX.Element
   ) =>
   (
     def: Types.Definition<A>,
-    defDetail: FormDef<A>[],
+    defDetail: FormDef<A, Id>[],
     viewFields: ViewField<A>[],
     urlPrefix: string,
     crud: T.CrudRequest<A, Id>,
