@@ -1,3 +1,5 @@
+# deprecated in favor of https://github.com/nexys-system/react-headless
+
 # React Bootrap components with typescript
 
 [![npm version](https://badge.fury.io/js/%40nexys%2Freact-bootstrap.svg)](https://www.npmjs.com/package/@nexys/react-bootstrap)
